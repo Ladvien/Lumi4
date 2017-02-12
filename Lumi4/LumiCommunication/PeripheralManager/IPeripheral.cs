@@ -3,10 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lumi4.DeviceState;
 
-namespace Lumi4.PeripheralManager
+namespace Lumi4.LumiCommunication.PeripheralManager
 {
+    public delegate void ReceivedDataEventHandler(object source, EventArgs args);
+    public delegate void SentDataEventHandler(object source, EventArgs args);
+    public delegate void DeviceStateChangeEventHandler(object source, EventArgs args);
+
     interface IPeripheral
     {
+        #region delegates and events
+        // Delegate info:
+        // https://www.youtube.com/watch?v=jQgwEsJISy0
+        event ReceivedDataEventHandler ReceivedData;
+        void OnReceivedData();
+        event SentDataEventHandler SentData;
+        void OnSentData();
+        event DeviceStateChangeEventHandler DeviceStateChange;
+        void OnDeviceStateChange();
+
+        #endregion delegates and events
+
+        #region fields
+
+        #endregion fields
+
+        #region properties
+        PeripheralInfo PeripheralInfo { get; set; }
+        PeripheralBehavior PeripheralBehavior { get; set; }
+        List<byte> ReceivedBufferUpdated { get; set; }
+        List<byte> SentBufferUpdated { get; set; }
+
+        #endregion properties
+
+        #region methods
+
+        bool AddDataToSendBuffer(byte[] data);
+        bool AddStringToSendBuffer(string str);
+        bool SetBehavior(PeripheralBehavior peripheralBehavior);
+        PeripheralInfo GetDeviceInfo();
+
+        #endregion methods
     }
 }

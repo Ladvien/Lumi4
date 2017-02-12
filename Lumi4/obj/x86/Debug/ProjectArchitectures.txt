@@ -1,1 +1,1 @@
-c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Lumi4.csproj;x86
+C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Lumi4.csproj;x86

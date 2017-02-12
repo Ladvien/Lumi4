@@ -13,6 +13,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Lumi4.LumiCommunication.PeripheralManager;
+using Lumi4.CentralManager;
+using System.Diagnostics;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -24,27 +27,19 @@ namespace Lumi4
     public sealed partial class MainPage : Page
     {
         const string serverUrl = "http://192.168.1.103/";
-        // LumiHttpPeripheral esper = new LumiHttpPeripheral(serverUrl);
 
         public MainPage()
         {
             this.InitializeComponent();
 
+            // UI Hacking.
+            // TODO: Reconsider below.
             var bounds = ApplicationView.GetForCurrentView().VisibleBounds;
-
-            // Height
-            //ReceivedTextBoxScrollPresenter.Height = ReceivedTextBoxScrollPresenter.
-            //UpdateLayout();
-            //var textBoxHeight = bounds.Height - MainStack.Height;
-            //ReceivedTextBlock.Height = textBoxHeight;
-            // ReceivedScrollView.MaxHeight = textBoxHeight;
-
-
-            //esper.PostString("Hey you!");
-            //esper.SetPollingDelay(2000);
-            //esper.GetDeviceName();
             byte[] testPacket = { 0x48, 0x45, 0x59, 0x20, 0x59, 0x4F, 0x55 };
 
+            HttpPeripheral httpPeripheral = (HttpPeripheral)PeripheralFactory.CreateNewPeripheral("wifi");
+
+            Debug.WriteLine(httpPeripheral);
 
         }
 
@@ -55,21 +50,12 @@ namespace Lumi4
 
         private void Send_Button_Click(object sender, RoutedEventArgs e)
         {
-            //string sendMessage = txTextBox.Text;
-            //esperPostString(serverUrl, sendMessage);
-            //esper.End();
+
         }
 
         private async void Search_Click(object sender, RoutedEventArgs e)
         {
-            //LumiHttpPeripheral esper = new LumiHttpPeripheral(ProgressBar);
-            //var discoveredIPs = await esper.SearchForESPER(98, 130);
 
-            //foreach (Uri ip in discoveredIPs)
-            //{
-            //    IPComboBox.Items.Add(ip.Host);
-            //}
-            //IPComboBox.SelectedIndex = 0;
         }
     }
 }

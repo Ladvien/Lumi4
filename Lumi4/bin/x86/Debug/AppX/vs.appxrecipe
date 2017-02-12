@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>52068d6b-5aa2-441a-a114-9831c4ef889a</PackageIdentityName>
     <PackageIdentityPublisher>CN=Thomas Brittain</PackageIdentityPublisher>
-    <IntermediateOutputPath>c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -25,16 +25,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-10T00:42:34.911</Modified>
+      <Modified>2017-02-12T14:23:13.487</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Lumi4.exe">
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Lumi4.exe">
       <PackagePath>entrypoint\Lumi4.exe</PackagePath>
-      <Modified>2017-02-10T00:42:32.166</Modified>
+      <Modified>2017-02-12T14:23:13.062</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Thomas Brittain\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -448,45 +448,236 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-23T04:11:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\BadgeLogo.scale-100.png">
+      <PackagePath>Assets\BadgeLogo.scale-100.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.670</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\BadgeLogo.scale-125.png">
+      <PackagePath>Assets\BadgeLogo.scale-125.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.672</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\BadgeLogo.scale-150.png">
+      <PackagePath>Assets\BadgeLogo.scale-150.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.676</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\BadgeLogo.scale-200.png">
+      <PackagePath>Assets\BadgeLogo.scale-200.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.680</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\BadgeLogo.scale-400.png">
+      <PackagePath>Assets\BadgeLogo.scale-400.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.684</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\LockScreenLogo.scale-100.png">
+      <PackagePath>Assets\LockScreenLogo.scale-100.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.689</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\LockScreenLogo.scale-125.png">
+      <PackagePath>Assets\LockScreenLogo.scale-125.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.692</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\LockScreenLogo.scale-150.png">
+      <PackagePath>Assets\LockScreenLogo.scale-150.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.697</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.701</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\LockScreenLogo.scale-400.png">
+      <PackagePath>Assets\LockScreenLogo.scale-400.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.706</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.711</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.717</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.722</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.727</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.733</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.622</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.625</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.628</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.630</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.635</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square310x310Logo.scale-100.png">
+      <PackagePath>Assets\Square310x310Logo.scale-100.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.637</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square310x310Logo.scale-125.png">
+      <PackagePath>Assets\Square310x310Logo.scale-125.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.639</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square310x310Logo.scale-150.png">
+      <PackagePath>Assets\Square310x310Logo.scale-150.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.642</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square310x310Logo.scale-200.png">
+      <PackagePath>Assets\Square310x310Logo.scale-200.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.645</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square310x310Logo.scale-400.png">
+      <PackagePath>Assets\Square310x310Logo.scale-400.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.647</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.scale-100.png">
+      <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.738</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.scale-125.png">
+      <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.744</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.scale-150.png">
+      <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.749</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.755</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.scale-400.png">
+      <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.760</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.766</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.771</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.604</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.601</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square71x71Logo.scale-100.png">
+      <PackagePath>Assets\Square71x71Logo.scale-100.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.608</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square71x71Logo.scale-125.png">
+      <PackagePath>Assets\Square71x71Logo.scale-125.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.611</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square71x71Logo.scale-150.png">
+      <PackagePath>Assets\Square71x71Logo.scale-150.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.614</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square71x71Logo.scale-200.png">
+      <PackagePath>Assets\Square71x71Logo.scale-200.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.617</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square71x71Logo.scale-400.png">
+      <PackagePath>Assets\Square71x71Logo.scale-400.png</PackagePath>
+      <Modified>2017-02-10T01:00:17.619</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.649</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.651</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.653</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.656</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.658</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.660</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Wide310x150Logo.scale-125.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.662</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Wide310x150Logo.scale-150.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.664</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.666</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Wide310x150Logo.scale-400.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-02-10T01:00:17.668</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2017-02-10T00:24:42.235</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\LockScreenLogo.scale-200.png">
-      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2015-09-20T23:30:08.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\SplashScreen.scale-200.png">
-      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T23:30:08.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square150x150Logo.scale-200.png">
-      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T23:30:08.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.scale-200.png">
-      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T23:30:08.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
-      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T23:30:08.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\StoreLogo.png">
-      <PackagePath>Assets\StoreLogo.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T23:30:08.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\Assets\Wide310x150Logo.scale-200.png">
-      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-09-20T23:30:08.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Lumi4.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Lumi4.xr.xml">
       <PackagePath>Lumi4.xr.xml</PackagePath>
       <Modified>2017-02-10T00:42:31.866</Modified>
     </AppxPackagedFile>
@@ -494,14 +685,14 @@
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-01-03T15:45:04.652</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-10T00:42:34.292</Modified>
+      <Modified>2017-02-12T14:21:01.084</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Core\Lumi4.exe">
+    <AppxPackagedFile Include="C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Core\Lumi4.exe">
       <PackagePath>Lumi4.exe</PackagePath>
-      <Modified>2017-02-10T00:42:34.896</Modified>
+      <Modified>2017-02-12T14:23:13.481</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

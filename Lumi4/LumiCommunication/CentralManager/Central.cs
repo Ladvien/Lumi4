@@ -8,5 +8,7 @@ namespace Lumi4.CentralManager
 {
     class Central
     {
+
+
     }
 }
