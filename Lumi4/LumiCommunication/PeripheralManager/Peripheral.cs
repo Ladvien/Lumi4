@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lumi4.LumiCommunication.DataHandling;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -73,7 +74,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             }
         }
 
-
         public bool AddDataToSendBuffer(byte[] data)
         {
             try
@@ -89,18 +89,22 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 
         public bool AddStringToSendBuffer(string str)
         {
+            DataConversion dataConverter = new DataConversion();
             try
             {
-
+                var listByteArray = dataConverter.StringToListByteArray(str);
+                AddDataToSendBuffer(listByteArray.ToArray());
+                return true;
             } catch (Exception ex)
             {
-
+                Debug.WriteLine("Exception in AddStringToSendBuffer: " + ex.Message);
+                return false;
             }
         }
 
         public PeripheralInfo GetDeviceInfo()
         {
-            throw new NotImplementedException();
+            return _PeripheralInfo;
         }
 
         public void OnDeviceStateChange()
