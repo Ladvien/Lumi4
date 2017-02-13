@@ -25,15 +25,13 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 
         #endregion delegates and events
 
-        #region fields
 
-        #endregion fields
 
         #region properties
         PeripheralInfo PeripheralInfo { get; set; }
         PeripheralBehavior PeripheralBehavior { get; set; }
-        List<byte> ReceivedBufferUpdated { get; set; }
-        List<byte> SentBufferUpdated { get; set; }
+        List<byte> ReceivedBufferUpdated { get; }
+        List<byte> SentBufferUpdated { get; }
 
         #endregion properties
 
