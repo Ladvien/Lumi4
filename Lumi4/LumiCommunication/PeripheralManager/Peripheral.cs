@@ -10,7 +10,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 {
     abstract class Peripheral: IPeripheral
     {
-
         public event DeviceStateChangeEventHandler DeviceStateChange;
         public event ReceivedDataEventHandler ReceivedData;
         public event SentDataEventHandler SentData;
@@ -28,9 +27,14 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         #region constructor
         internal Peripheral()
         {
-
+            _PeripheralInfo.Name = "Bob";
         }
         #endregion constructor
+
+        public void Test()
+        {
+            OnDeviceStateChange(_PeripheralInfo);
+        }
 
         public PeripheralBehavior PeripheralBehavior
         {
@@ -50,11 +54,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             get
             {
                 return _PeripheralInfo;
-            }
-
-            set
-            {
-                _PeripheralInfo = value;
             }
         }
 
@@ -107,9 +106,11 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             return _PeripheralInfo;
         }
 
-        public void OnDeviceStateChange()
+        public void OnDeviceStateChange(PeripheralInfo peripheralInfo)
         {
-            throw new NotImplementedException();
+            DeviceStateChangedEventArgs deviceStateChangedEventArgs = new DeviceStateChangedEventArgs();
+            deviceStateChangedEventArgs.PeripheralInfo = peripheralInfo;
+            DeviceStateChange?.Invoke(this, deviceStateChangedEventArgs);
         }
 
         public void OnReceivedData()
@@ -124,7 +125,21 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 
         public bool SetBehavior(PeripheralBehavior peripheralBehavior)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _PeripheralBehavior = peripheralBehavior;
+                return true;
+            } catch (Exception ex)
+            {
+                Debug.WriteLine("Exception in SetBehavior(): " + ex.Message);
+                return false;
+            }
+            
         }
+    }
+
+    public class DeviceStateChangedEventArgs: EventArgs
+    {
+        internal PeripheralInfo PeripheralInfo { get; set; }
     }
 }

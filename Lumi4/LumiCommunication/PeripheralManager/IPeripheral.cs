@@ -9,7 +9,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 {
     public delegate void ReceivedDataEventHandler(object source, EventArgs args);
     public delegate void SentDataEventHandler(object source, EventArgs args);
-    public delegate void DeviceStateChangeEventHandler(object source, EventArgs args);
+    public delegate void DeviceStateChangeEventHandler(object source, DeviceStateChangedEventArgs args);
 
     interface IPeripheral
     {
@@ -21,15 +21,15 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         event SentDataEventHandler SentData;
         void OnSentData();
         event DeviceStateChangeEventHandler DeviceStateChange;
-        void OnDeviceStateChange();
+        void OnDeviceStateChange(PeripheralInfo peripheralInfo);
 
         #endregion delegates and events
 
 
 
         #region properties
-        PeripheralInfo PeripheralInfo { get; set; }
-        PeripheralBehavior PeripheralBehavior { get; set; }
+        PeripheralInfo PeripheralInfo { get; }
+        PeripheralBehavior PeripheralBehavior { get; }
         List<byte> ReceivedBufferUpdated { get; }
         List<byte> SentBufferUpdated { get; }
 

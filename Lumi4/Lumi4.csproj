@@ -99,6 +99,7 @@
     <Compile Include="LumiCommunication\CentralManager\Central.cs" />
     <Compile Include="LumiCommunication\CentralManager\HttpCentral.cs" />
     <Compile Include="LumiCommunication\CentralManager\ICentral.cs" />
+    <Compile Include="LumiCommunication\DataHandling\DataConversion.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\BluetoothPeripheral.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\HttpPeripheral.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\IPeripheral.cs" />

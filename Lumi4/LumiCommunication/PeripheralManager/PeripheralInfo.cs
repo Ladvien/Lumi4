@@ -8,6 +8,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 {
     class PeripheralInfo
     {
-        
+        public string Name { get; set; }
     }
 }

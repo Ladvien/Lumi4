@@ -37,10 +37,19 @@ namespace Lumi4
             var bounds = ApplicationView.GetForCurrentView().VisibleBounds;
             byte[] testPacket = { 0x48, 0x45, 0x59, 0x20, 0x59, 0x4F, 0x55 };
 
-            HttpPeripheral httpPeripheral = (HttpPeripheral)PeripheralFactory.CreateNewPeripheral("wifi");
+            HttpPeripheral httpPeripheral = (HttpPeripheral)PeripheralFactory.CreateNewPeripheral("http");
 
             Debug.WriteLine(httpPeripheral);
 
+            httpPeripheral.DeviceStateChange += HttpPeripheral_DeviceStateChange;
+            httpPeripheral.Test();
+
+
+        }
+
+        private void HttpPeripheral_DeviceStateChange(object source, DeviceStateChangedEventArgs args)
+        {
+            Debug.WriteLine(args.PeripheralInfo.Name);
         }
 
         private async void Get_Button_Click(object sender, RoutedEventArgs e)
