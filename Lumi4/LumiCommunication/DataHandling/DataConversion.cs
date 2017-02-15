@@ -31,5 +31,17 @@ namespace Lumi4.LumiCommunication.DataHandling
 
             return byteArray;
         }
+
+        public string ByteArrayToAsciiString(byte[] data)
+        {
+            try
+            {
+                return Encoding.UTF8.GetString(data);
+            } catch (Exception ex)
+            {
+                Debug.WriteLine("Exception in ByteArrayToAsciiString: " + ex.Message);
+            }
+            return "";
+        }
     }
 }

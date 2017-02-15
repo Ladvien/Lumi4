@@ -7,8 +7,8 @@ using Lumi4.DeviceState;
 
 namespace Lumi4.LumiCommunication.PeripheralManager
 {
-    public delegate void ReceivedDataEventHandler(object source, EventArgs args);
-    public delegate void SentDataEventHandler(object source, EventArgs args);
+    public delegate void ReceivedDataEventHandler(object source, ReceivedDataEventArgs args);
+    public delegate void SentDataEventHandler(object source, SentDataEventArgs args);
     public delegate void DeviceStateChangeEventHandler(object source, DeviceStateChangedEventArgs args);
 
     interface IPeripheral
@@ -17,9 +17,9 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         // Delegate info:
         // https://www.youtube.com/watch?v=jQgwEsJISy0
         event ReceivedDataEventHandler ReceivedData;
-        void OnReceivedData();
+        void OnReceivedData(byte[] data);
         event SentDataEventHandler SentData;
-        void OnSentData();
+        void OnSentData(byte [] data);
         event DeviceStateChangeEventHandler DeviceStateChange;
         void OnDeviceStateChange(PeripheralInfo peripheralInfo);
 
@@ -37,6 +37,8 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 
         #region methods
 
+        void Start();
+        void End();
         bool AddDataToSendBuffer(byte[] data);
         bool AddStringToSendBuffer(string str);
         bool SetBehavior(PeripheralBehavior peripheralBehavior);

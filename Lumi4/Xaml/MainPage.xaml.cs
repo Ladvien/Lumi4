@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Navigation;
 using Lumi4.LumiCommunication.PeripheralManager;
 using Lumi4.CentralManager;
 using System.Diagnostics;
+using Lumi4.LumiCommunication.DataHandling;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -42,9 +43,25 @@ namespace Lumi4
             Debug.WriteLine(httpPeripheral);
 
             httpPeripheral.DeviceStateChange += HttpPeripheral_DeviceStateChange;
+            httpPeripheral.ReceivedData += HttpPeripheral_ReceivedData;
+            httpPeripheral.SentData += HttpPeripheral_SentData;
             httpPeripheral.Test();
 
 
+        }
+
+        private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
+        {
+            DataConversion converter = new DataConversion();
+            var str = converter.ByteArrayToAsciiString(args.ReceivedData);
+            Debug.WriteLine(str);
+        }
+
+        private void HttpPeripheral_SentData(object source, SentDataEventArgs args)
+        {
+            DataConversion converter = new DataConversion();
+            var str = converter.ByteArrayToAsciiString(args.SentData);
+            Debug.WriteLine(str);
         }
 
         private void HttpPeripheral_DeviceStateChange(object source, DeviceStateChangedEventArgs args)

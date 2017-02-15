@@ -33,7 +33,11 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 
         public void Test()
         {
+            byte[] receivedData = new byte[] { 0x33, 0x34, 0x44 };
+            byte[] sentData = new byte[] { 0x55, 0x54, 0x56 };
             OnDeviceStateChange(_PeripheralInfo);
+            OnReceivedData(receivedData);
+            OnSentData(sentData);
         }
 
         public PeripheralBehavior PeripheralBehavior
@@ -113,14 +117,18 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             DeviceStateChange?.Invoke(this, deviceStateChangedEventArgs);
         }
 
-        public void OnReceivedData()
+        public void OnReceivedData(byte[] data)
         {
-            throw new NotImplementedException();
+            ReceivedDataEventArgs receivedArgs = new ReceivedDataEventArgs();
+            receivedArgs.ReceivedData = data;
+            ReceivedData?.Invoke(this, receivedArgs);
         }
 
-        public void OnSentData()
+        public void OnSentData(byte[] data)
         {
-            throw new NotImplementedException();
+            SentDataEventArgs sentArgs = new SentDataEventArgs();
+            sentArgs.SentData = data;
+            SentData?.Invoke(this, sentArgs);
         }
 
         public bool SetBehavior(PeripheralBehavior peripheralBehavior)
@@ -142,4 +150,15 @@ namespace Lumi4.LumiCommunication.PeripheralManager
     {
         internal PeripheralInfo PeripheralInfo { get; set; }
     }
+
+    public class ReceivedDataEventArgs : EventArgs
+    {
+        internal byte[] ReceivedData { get; set; }
+    }
+
+    public class SentDataEventArgs: EventArgs
+    {
+        internal byte[] SentData { get; set; }
+    }
+
 }
