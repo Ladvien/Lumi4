@@ -14,9 +14,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Lumi4.LumiCommunication.PeripheralManager;
-using Lumi4.CentralManager;
+using Lumi4;
 using System.Diagnostics;
 using Lumi4.LumiCommunication.DataHandling;
+using Lumi4.LumiCommunication.CentralManager;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -38,20 +39,32 @@ namespace Lumi4
             var bounds = ApplicationView.GetForCurrentView().VisibleBounds;
             byte[] testPacket = { 0x48, 0x45, 0x59, 0x20, 0x59, 0x4F, 0x55 };
 
-            HttpPeripheral httpPeripheral = (HttpPeripheral)PeripheralFactory.CreateNewPeripheral("http");
 
-            Debug.WriteLine(httpPeripheral);
 
-            httpPeripheral.DeviceStateChange += HttpPeripheral_DeviceStateChange;
-            httpPeripheral.ReceivedData += HttpPeripheral_ReceivedData;
-            httpPeripheral.SentData += HttpPeripheral_SentData;
-            httpPeripheral.Test();
+            //HttpPeripheral httpPeripheral = (HttpPeripheral)PeripheralFactory.CreateNewPeripheral("http");
 
+            //Debug.WriteLine(httpPeripheral);
+
+            //httpPeripheral.DeviceStateChange += HttpPeripheral_DeviceStateChange;
+            //httpPeripheral.ReceivedData += HttpPeripheral_ReceivedData;
+            //httpPeripheral.SentData += HttpPeripheral_SentData;
+            //httpPeripheral.Test();
+
+            WifiCentralManager centralManager = new WifiCentralManager();
+
+            centralManager.DeviceStateChange += CentralManager_DeviceStateChange;
+            centralManager.Start();
+            
 
         }
 
-        private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
+        private void CentralManager_DeviceStateChange(object source, DeviceStateChangeEventArgs args)
         {
+            Debug.WriteLine(args.DeviceState.State);
+        }
+
+        private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
+        { 
             DataConversion converter = new DataConversion();
             var str = converter.ByteArrayToAsciiString(args.ReceivedData);
             Debug.WriteLine(str);

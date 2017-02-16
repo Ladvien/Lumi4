@@ -195,6 +195,21 @@ c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\obj\x
 c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 c:\users\thomas brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\Thomas Brittain\documents\visual studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Lumi4.csprojResolveAssemblyReference.cache
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Lumi4.csprojResolveAssemblyReference.cache
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\App.g.i.cs
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\App.g.cs
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\TabHeader.g.i.cs
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\TabHeader.g.cs
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\MainPage.g.i.cs
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\MainPage.g.cs
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\XamlTypeInfo.g.cs
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\App.xaml
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\TabHeader.xaml
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\MainPage.xaml
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\App.xbf
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\TabHeader.xbf
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\MainPage.xbf
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\XamlSaveStateFile.xml
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\App.xbf
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Xaml\TabHeader.xbf
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Xaml\MainPage.xbf
@@ -309,21 +324,6 @@ C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\System.Xml.XDocument.dll
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\System.Xml.XmlDocument.dll
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\System.Xml.XmlSerializer.dll
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Lumi4.csprojResolveAssemblyReference.cache
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\App.g.i.cs
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\App.g.cs
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\TabHeader.g.i.cs
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\TabHeader.g.cs
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\MainPage.g.i.cs
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\MainPage.g.cs
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\XamlTypeInfo.g.cs
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\App.xaml
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\TabHeader.xaml
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\MainPage.xaml
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\App.xbf
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\TabHeader.xbf
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Xaml\MainPage.xbf
-C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\XamlSaveStateFile.xml
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Lumi4.exe
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Lumi4.pdb
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\ResourceHandlingTask.state

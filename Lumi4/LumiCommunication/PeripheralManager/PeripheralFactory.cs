@@ -15,13 +15,10 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             {
                 case "bluetooth":
                     return new BluetoothPeripheral();
-                    break;
                 case "http":
                     return new HttpPeripheral();
-                    break;
                 default:
                     return null;
-                    break;
             }
         }
     }

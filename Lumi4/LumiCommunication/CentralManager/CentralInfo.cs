@@ -1,12 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lumi4.CentralManager
+namespace Lumi4.LumiCommunication.CentralManager
 {
-    class HttpCentral
+    class CentralInfo
     {
     }
 }

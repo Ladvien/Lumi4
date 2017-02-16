@@ -95,10 +95,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LumiCommunication\CentralManager\BluetoothCentral.cs" />
+    <Compile Include="LumiCommunication\CentralManager\BluetoothLECentralManager.cs" />
     <Compile Include="LumiCommunication\CentralManager\Central.cs" />
-    <Compile Include="LumiCommunication\CentralManager\HttpCentral.cs" />
-    <Compile Include="LumiCommunication\CentralManager\ICentral.cs" />
+    <Compile Include="LumiCommunication\CentralManager\CentralBehavior.cs" />
+    <Compile Include="LumiCommunication\CentralManager\CentralInfo.cs" />
+    <Compile Include="LumiCommunication\CentralManager\WifiCentralManager.cs" />
     <Compile Include="LumiCommunication\DataHandling\DataConversion.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\BluetoothPeripheral.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\HttpPeripheral.cs" />

@@ -144,6 +144,16 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             }
             
         }
+
+        public void Start()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void End()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class DeviceStateChangedEventArgs: EventArgs
