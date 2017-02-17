@@ -29,7 +29,7 @@ namespace Lumi4
     public sealed partial class MainPage : Page
     {
         const string serverUrl = "http://192.168.1.103/";
-
+        WifiCentralManager centralManager = new WifiCentralManager(serverUrl);
         public MainPage()
         {
             this.InitializeComponent();
@@ -39,7 +39,8 @@ namespace Lumi4
             var bounds = ApplicationView.GetForCurrentView().VisibleBounds;
             byte[] testPacket = { 0x48, 0x45, 0x59, 0x20, 0x59, 0x4F, 0x55 };
 
-
+            const string serverUrl = "http://192.168.1.103/";
+            centralManager = new WifiCentralManager(serverUrl);
 
             //HttpPeripheral httpPeripheral = (HttpPeripheral)PeripheralFactory.CreateNewPeripheral("http");
 
@@ -50,17 +51,18 @@ namespace Lumi4
             //httpPeripheral.SentData += HttpPeripheral_SentData;
             //httpPeripheral.Test();
 
-            WifiCentralManager centralManager = new WifiCentralManager();
+
 
             centralManager.DeviceStateChange += CentralManager_DeviceStateChange;
             centralManager.Start();
-            
+
 
         }
 
-        private void CentralManager_DeviceStateChange(object source, DeviceStateChangeEventArgs args)
+        private async void CentralManager_DeviceStateChange(object source, DeviceStateChangeEventArgs args)
         {
             Debug.WriteLine(args.DeviceState.State);
+            await centralManager.Search(99, 120, 300, ProgressBar);
         }
 
         private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
