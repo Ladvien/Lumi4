@@ -1,5 +1,4 @@
-﻿using Lumi4.DeviceState;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,7 +9,8 @@ using Windows.Devices.Radios;
 using Lumi4.LumiCommunication.DataHandling;
 using System.Net.Http;
 using Windows.UI.Xaml.Controls;
-
+using Lumi4.DeviceState;
+using Lumi4.LumiCommunication.PeripheralManager;
 namespace Lumi4.LumiCommunication.CentralManager
 {
     class WifiCentralManager: Central
@@ -45,14 +45,14 @@ namespace Lumi4.LumiCommunication.CentralManager
         }
 
 
-        public async Task<List<Uri>> Search(int startIndex, int endIndex, int timeout = 300, ProgressBar progressBar = null)
+        public async void Search(int startIndex, int endIndex, int timeout = 300, ProgressBar progressBar = null)
         {
             DataConversion dataConverter = new DataConversion();
             var threePartIP = DataConversion.seperateStringByCharacterIndex(IP.ToString(), 3, '.');
             var httpClient = new System.Net.Http.HttpClient();
             httpClient.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
             var webService = WebServerUrl + "name";
-            List<Uri> discoveredIPs = new List<Uri>();
+            List<Peripheral> discoveredIPs = new List<Peripheral>();
 
             if (progressBar != null)
             {
@@ -68,7 +68,8 @@ namespace Lumi4.LumiCommunication.CentralManager
                     var response = await httpClient.PostAsync(resourceUri, null);
                     if (response.IsSuccessStatusCode == true)
                     {
-                        discoveredIPs.Add(resourceUri);
+                        HttpPeripheral peripheral = new HttpPeripheral(resourceUri);
+                        discoveredIPs.Add(peripheral);
                     }
                     response.Dispose();
                 }
@@ -84,7 +85,7 @@ namespace Lumi4.LumiCommunication.CentralManager
                 progressBar.Value = 0;
                 progressBar.IsEnabled = false;
             }
-            return discoveredIPs;
+            OnDiscoveringDevice(discoveredIPs);            
         }
 
         public async Task<bool> IsWifiOn()

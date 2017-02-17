@@ -5,19 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Radios;
-
+using Lumi4.LumiCommunication.PeripheralManager;
 
 namespace Lumi4.LumiCommunication.CentralManager
 {
     public delegate void CentralStateChangeEventHandler(object source, DeviceStateChangeEventArgs args);
+    public delegate void DiscoveredDeviceEventHandler(object source, DiscoveredDeviceEventArgs args);
 
     abstract public class Central
     {
 
         #region delegates and events
         public event CentralStateChangeEventHandler DeviceStateChange;
-
-        #endregion delegates and events
+        public event DiscoveredDeviceEventHandler DiscoveredDevice;
+#endregion delegates and events
 
         #region fields
 
@@ -39,11 +40,23 @@ namespace Lumi4.LumiCommunication.CentralManager
             deviceStateChangeEventArgs.DeviceState = deviceState;
             DeviceStateChange?.Invoke(this, deviceStateChangeEventArgs);
         }
+
+        public void OnDiscoveringDevice(List<Peripheral> peripheralList)
+        {
+            DiscoveredDeviceEventArgs args = new DiscoveredDeviceEventArgs();
+            args.Peripherals = peripheralList;
+            DiscoveredDevice?.Invoke(this, args);
+        }
         #endregion methods
     }
 
     public class DeviceStateChangeEventArgs: EventArgs
     {
         public DeviceState.DeviceState DeviceState { get; set; }
+    }
+
+    public class DiscoveredDeviceEventArgs: EventArgs
+    {
+        public List<Peripheral> Peripherals { get; set; }
     }
 }

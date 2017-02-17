@@ -106,7 +106,6 @@
     <Compile Include="LumiCommunication\PeripheralManager\IPeripheral.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\Peripheral.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\PeripheralBehavior.cs" />
-    <Compile Include="LumiCommunication\PeripheralManager\PeripheralFactory.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\PeripheralInfo.cs" />
     <Compile Include="LumiCommunication\DeviceState\DeviceState.cs" />
     <Compile Include="Xaml\TabHeader.xaml.cs">

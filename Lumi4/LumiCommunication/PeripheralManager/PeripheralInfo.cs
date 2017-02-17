@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lumi4.LumiCommunication.PeripheralManager
 {
-    class PeripheralInfo
+    public class PeripheralInfo
     {
         public string Name { get; set; }
     }

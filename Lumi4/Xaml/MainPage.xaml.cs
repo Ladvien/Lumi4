@@ -18,6 +18,7 @@ using Lumi4;
 using System.Diagnostics;
 using Lumi4.LumiCommunication.DataHandling;
 using Lumi4.LumiCommunication.CentralManager;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -30,6 +31,9 @@ namespace Lumi4
     {
         const string serverUrl = "http://192.168.1.103/";
         WifiCentralManager centralManager = new WifiCentralManager(serverUrl);
+
+
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -42,27 +46,44 @@ namespace Lumi4
             const string serverUrl = "http://192.168.1.103/";
             centralManager = new WifiCentralManager(serverUrl);
 
-            //HttpPeripheral httpPeripheral = (HttpPeripheral)PeripheralFactory.CreateNewPeripheral("http");
-
-            //Debug.WriteLine(httpPeripheral);
-
-            //httpPeripheral.DeviceStateChange += HttpPeripheral_DeviceStateChange;
-            //httpPeripheral.ReceivedData += HttpPeripheral_ReceivedData;
-            //httpPeripheral.SentData += HttpPeripheral_SentData;
-            //httpPeripheral.Test();
-
-
-
             centralManager.DeviceStateChange += CentralManager_DeviceStateChange;
+            centralManager.DiscoveredDevice += CentralManager_DiscoveredDevice;
             centralManager.Start();
-
-
         }
 
         private async void CentralManager_DeviceStateChange(object source, DeviceStateChangeEventArgs args)
         {
             Debug.WriteLine(args.DeviceState.State);
-            await centralManager.Search(99, 120, 300, ProgressBar);
+            if(args.DeviceState.State == DeviceState.States.On)
+            {
+                centralManager.Search(99, 120, 300, ProgressBar);
+            } else
+            {
+
+                var dialog = new MessageDialog("It doesn't look like WiFi is on. Go to settings?");
+
+                var yesCommand = new UICommand("Yes") { Id = 0 };
+                var noCommand = new UICommand("No") { Id = 1 };
+                dialog.Commands.Add(yesCommand);
+                dialog.Commands.Add(noCommand);
+
+                dialog.DefaultCommandIndex = 0;
+                dialog.CancelCommandIndex = 1;
+
+                var result = await dialog.ShowAsync();
+
+                if(result == yesCommand)
+                {
+                    bool settingsResult = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:network-wifi"));
+                }
+                
+            }
+            
+        }
+
+        private void CentralManager_DiscoveredDevice(object source, DiscoveredDeviceEventArgs args)
+        {
+            Debug.WriteLine(args.Peripherals[0].PeripheralInfo.Name);
         }
 
         private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)

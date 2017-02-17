@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lumi4.LumiCommunication.PeripheralManager
 {
-    abstract class Peripheral: IPeripheral
+    public abstract class Peripheral: IPeripheral
     {
         public event DeviceStateChangeEventHandler DeviceStateChange;
         public event ReceivedDataEventHandler ReceivedData;

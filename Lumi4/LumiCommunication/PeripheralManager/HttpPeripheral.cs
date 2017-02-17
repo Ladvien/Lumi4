@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace Lumi4.LumiCommunication.PeripheralManager
 {
-    class HttpPeripheral: Peripheral
+    public class HttpPeripheral: Peripheral
     {
+        #region properties
+        private Uri PeripheralsUri { get; set; }
+        #endregion
 
+        public HttpPeripheral(Uri uri)
+        {
+            PeripheralsUri = uri;
+        }
     }
 }
