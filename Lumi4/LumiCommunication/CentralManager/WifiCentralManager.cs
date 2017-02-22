@@ -36,14 +36,10 @@ namespace Lumi4.LumiCommunication.CentralManager
             }
         }
 
-        public override async void Start()
+        public override void Start()
         {
-            DeviceState.DeviceState deviceState = new DeviceState.DeviceState();
-            var wifiOn = await IsWifiOn();
-            if (wifiOn) { deviceState.State = States.On; } else { deviceState.State = States.Off; }
-            OnDeviceStateChange(deviceState);
+            UpdateDeviceStateWithWifiStatus();
         }
-
 
         public async void Search(int startIndex, int endIndex, int timeout = 300, ProgressBar progressBar = null)
         {
@@ -58,6 +54,9 @@ namespace Lumi4.LumiCommunication.CentralManager
             {
                 progressBar.Maximum = endIndex - startIndex;
             }
+
+            DeviceState.State = States.Searching;
+            OnDeviceStateChange(DeviceState);
 
             for (int i = startIndex; i < endIndex; i++)
             {
@@ -77,30 +76,15 @@ namespace Lumi4.LumiCommunication.CentralManager
                 {
                     Debug.WriteLine("Exception in WifiCentralManager.Search: " + ex.Message);
                 }
-                if(progressBar != null) { progressBar.Value += 1; }
-                
+                if(progressBar != null) { progressBar.Value += 1; }   
             }
             if(progressBar != null)
             {
                 progressBar.Value = 0;
                 progressBar.IsEnabled = false;
             }
+            UpdateDeviceStateWithWifiStatus();
             OnDiscoveringDevice(discoveredIPs);            
-        }
-
-        public async Task<bool> IsWifiOn()
-        {
-            await Radio.RequestAccessAsync();
-
-            var radios = await Radio.GetRadiosAsync();
-            foreach (var radio in radios)
-            {
-                if (radio.Kind == RadioKind.WiFi)
-                {
-                    return radio.State == RadioState.On;
-                }
-            }
-            return false;
         }
 
         public void SetPollingDelay(int delayInMilliseconds) { PollingDelay = delayInMilliseconds; }
@@ -150,6 +134,27 @@ namespace Lumi4.LumiCommunication.CentralManager
                 return "";
             }
             return "";
+        }
+
+        private async void UpdateDeviceStateWithWifiStatus()
+        {
+            var wifiOn = await IsWifiOn();
+            if (wifiOn) { this.DeviceState.State = States.On; } else { DeviceState.State = States.Off; }
+            OnDeviceStateChange(DeviceState);
+        }
+
+        public async Task<bool> IsWifiOn()
+        {
+            await Radio.RequestAccessAsync();
+            var radios = await Radio.GetRadiosAsync();
+            foreach (var radio in radios)
+            {
+                if (radio.Kind == RadioKind.WiFi)
+                {
+                    return radio.State == RadioState.On;
+                }
+            }
+            return false;
         }
     }
 

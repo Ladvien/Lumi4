@@ -195,8 +195,8 @@ namespace Lumi4.Lumi4_XamlTypeInfo
             case 0:   //  Lumi4.TabHeader
                 userType = new global::Lumi4.Lumi4_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.Activator = Activate_0_TabHeader;
-                userType.AddMemberName("Glyph");
                 userType.AddMemberName("Label");
+                userType.AddMemberName("Glyph");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -224,25 +224,25 @@ namespace Lumi4.Lumi4_XamlTypeInfo
         }
 
 
-        private object get_0_TabHeader_Glyph(object instance)
-        {
-            var that = (global::Lumi4.TabHeader)instance;
-            return that.Glyph;
-        }
-        private void set_0_TabHeader_Glyph(object instance, object Value)
-        {
-            var that = (global::Lumi4.TabHeader)instance;
-            that.Glyph = (global::System.String)Value;
-        }
-        private object get_1_TabHeader_Label(object instance)
+        private object get_0_TabHeader_Label(object instance)
         {
             var that = (global::Lumi4.TabHeader)instance;
             return that.Label;
         }
-        private void set_1_TabHeader_Label(object instance, object Value)
+        private void set_0_TabHeader_Label(object instance, object Value)
         {
             var that = (global::Lumi4.TabHeader)instance;
             that.Label = (global::System.String)Value;
+        }
+        private object get_1_TabHeader_Glyph(object instance)
+        {
+            var that = (global::Lumi4.TabHeader)instance;
+            return that.Glyph;
+        }
+        private void set_1_TabHeader_Glyph(object instance, object Value)
+        {
+            var that = (global::Lumi4.TabHeader)instance;
+            that.Glyph = (global::System.String)Value;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -252,19 +252,19 @@ namespace Lumi4.Lumi4_XamlTypeInfo
 
             switch (longMemberName)
             {
-            case "Lumi4.TabHeader.Glyph":
-                userType = (global::Lumi4.Lumi4_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Lumi4.TabHeader");
-                xamlMember = new global::Lumi4.Lumi4_XamlTypeInfo.XamlMember(this, "Glyph", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_0_TabHeader_Glyph;
-                xamlMember.Setter = set_0_TabHeader_Glyph;
-                break;
             case "Lumi4.TabHeader.Label":
                 userType = (global::Lumi4.Lumi4_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Lumi4.TabHeader");
                 xamlMember = new global::Lumi4.Lumi4_XamlTypeInfo.XamlMember(this, "Label", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_1_TabHeader_Label;
-                xamlMember.Setter = set_1_TabHeader_Label;
+                xamlMember.Getter = get_0_TabHeader_Label;
+                xamlMember.Setter = set_0_TabHeader_Label;
+                break;
+            case "Lumi4.TabHeader.Glyph":
+                userType = (global::Lumi4.Lumi4_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Lumi4.TabHeader");
+                xamlMember = new global::Lumi4.Lumi4_XamlTypeInfo.XamlMember(this, "Glyph", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_TabHeader_Glyph;
+                xamlMember.Setter = set_1_TabHeader_Glyph;
                 break;
             }
             return xamlMember;

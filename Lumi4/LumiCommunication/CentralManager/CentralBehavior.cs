@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lumi4.LumiCommunication.CentralManager
 {
-    class CentralBehavior
+    public class CentralBehavior
     {
     }
 }

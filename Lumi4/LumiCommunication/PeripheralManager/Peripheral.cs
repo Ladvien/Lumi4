@@ -15,12 +15,12 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         public event SentDataEventHandler SentData;
 
         #region fields
-        private PeripheralBehavior _PeripheralBehavior = new PeripheralBehavior();
-        private PeripheralInfo _PeripheralInfo = new PeripheralInfo();
+        protected PeripheralBehavior _PeripheralBehavior = new PeripheralBehavior();
+        protected PeripheralInfo _PeripheralInfo = new PeripheralInfo();
 
-        private List<byte> _ReceivedBuffer = new List<byte>();
-        private List<byte> _SentBuffer = new List<byte>();
-        private List<byte> _DataToSendBuffer = new List<byte>();
+        protected List<byte> _ReceivedBuffer = new List<byte>();
+        protected List<byte> _SentBuffer = new List<byte>();
+        protected List<byte> _DataToSendBuffer = new List<byte>();
 
         #endregion fields
 

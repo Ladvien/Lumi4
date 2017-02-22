@@ -19,6 +19,7 @@ using System.Diagnostics;
 using Lumi4.LumiCommunication.DataHandling;
 using Lumi4.LumiCommunication.CentralManager;
 using Windows.UI.Popups;
+using Lumi4.UI;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -49,41 +50,21 @@ namespace Lumi4
             centralManager.DeviceStateChange += CentralManager_DeviceStateChange;
             centralManager.DiscoveredDevice += CentralManager_DiscoveredDevice;
             centralManager.Start();
+            
         }
 
         private async void CentralManager_DeviceStateChange(object source, DeviceStateChangeEventArgs args)
         {
-            Debug.WriteLine(args.DeviceState.State);
-            if(args.DeviceState.State == DeviceState.States.On)
-            {
-                centralManager.Search(99, 120, 300, ProgressBar);
-            } else
-            {
-
-                var dialog = new MessageDialog("It doesn't look like WiFi is on. Go to settings?");
-
-                var yesCommand = new UICommand("Yes") { Id = 0 };
-                var noCommand = new UICommand("No") { Id = 1 };
-                dialog.Commands.Add(yesCommand);
-                dialog.Commands.Add(noCommand);
-
-                dialog.DefaultCommandIndex = 0;
-                dialog.CancelCommandIndex = 1;
-
-                var result = await dialog.ShowAsync();
-
-                if(result == yesCommand)
-                {
-                    bool settingsResult = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:network-wifi"));
-                }
-                
-            }
-            
+            Debug.WriteLine(args.DeviceState.State);           
         }
 
         private void CentralManager_DiscoveredDevice(object source, DiscoveredDeviceEventArgs args)
         {
-            Debug.WriteLine(args.Peripherals[0].PeripheralInfo.Name);
+            foreach(var peripheral in args.Peripherals)
+            {
+                Debug.WriteLine(peripheral.PeripheralInfo.Name);
+            }
+            
         }
 
         private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
@@ -117,7 +98,22 @@ namespace Lumi4
 
         private async void Search_Click(object sender, RoutedEventArgs e)
         {
-
+            var deviceState = centralManager.GetDeviceState();
+            if (deviceState.State == DeviceState.States.On)
+            {
+                centralManager.Search(99, 120, 300, ProgressBar);
+            }
+            else
+            {
+                DialogBoxYesOrNo dialogButton = new DialogBoxYesOrNo();
+                var result = await dialogButton.ShowDialogBox("It doesn't look like WiFi is on. Go to settings?");
+                if (result)
+                {
+                    bool settingsResult = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:network-wifi"));
+                }
+            }
         }
+
+
     }
 }

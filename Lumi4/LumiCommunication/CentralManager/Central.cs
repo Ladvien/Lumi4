@@ -15,19 +15,25 @@ namespace Lumi4.LumiCommunication.CentralManager
     abstract public class Central
     {
 
+       public Central()
+        {
+            DeviceState = new DeviceState.DeviceState();
+            CentralBehavior = new CentralBehavior();
+        }
+
         #region delegates and events
         public event CentralStateChangeEventHandler DeviceStateChange;
         public event DiscoveredDeviceEventHandler DiscoveredDevice;
-#endregion delegates and events
+        #endregion delegates and events
 
         #region fields
 
         #endregion fields
 
         #region properties
-        private DeviceState.DeviceState DeviceState { get; set; }
-        private CentralInfo CentralInfo { get; set; }
-        private CentralBehavior CentralBehavior { get; set; }
+        protected DeviceState.DeviceState DeviceState { get; set; }
+        protected CentralInfo CentralInfo { get; set; }
+        protected CentralBehavior CentralBehavior { get; set; }
 
         #endregion properties
 
@@ -47,6 +53,12 @@ namespace Lumi4.LumiCommunication.CentralManager
             args.Peripherals = peripheralList;
             DiscoveredDevice?.Invoke(this, args);
         }
+
+        public DeviceState.DeviceState GetDeviceState()
+        {
+            return this.DeviceState;
+        }
+
         #endregion methods
     }
 

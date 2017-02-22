@@ -108,11 +108,12 @@
     <Compile Include="LumiCommunication\PeripheralManager\PeripheralBehavior.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\PeripheralInfo.cs" />
     <Compile Include="LumiCommunication\DeviceState\DeviceState.cs" />
-    <Compile Include="Xaml\TabHeader.xaml.cs">
-      <DependentUpon>TabHeader.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Xaml\MainPage.xaml.cs">
+    <Compile Include="UI\DialogButton.cs" />
+    <Compile Include="UI\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TabHeader.xaml.cs">
+      <DependentUpon>TabHeader.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -179,11 +180,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Xaml\TabHeader.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="UI\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Xaml\MainPage.xaml">
+    <Page Include="UI\TabHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
