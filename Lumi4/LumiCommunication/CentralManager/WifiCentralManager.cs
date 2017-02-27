@@ -15,15 +15,14 @@ namespace Lumi4.LumiCommunication.CentralManager
 {
     class WifiCentralManager: Central
     {
-        private const string WebServiceGetName = "name";
+        
 
         #region properties
         private Uri IP { get; set; }
-        private int PollingDelay { get; set; }
-        private bool PollingActive { get; set; } = false;
+
         public string WebServerUrl { get; private set; }
         HttpClient httpClient = new HttpClient();
-        CancellationTokenSource PollingForDataCancelToken = new CancellationTokenSource();
+
         #endregion
 
         public WifiCentralManager(string ip)
@@ -72,16 +71,23 @@ namespace Lumi4.LumiCommunication.CentralManager
             {
                 try
                 {
-                    string ip = threePartIP + i.ToString() + "/" + WebServiceGetName;
-                    var resourceUri = new Uri(ip);
+                    string ip = threePartIP + i.ToString() + "/";
+                    var resourceUri = new Uri(ip + HttpPeripheral.WebServiceGetName);
                     var response = await httpClient.PostAsync(resourceUri, null);
                     if (response.IsSuccessStatusCode == true)
                     {
                         var responseString = await response.Content.ReadAsStringAsync();
                         if (responseString != "")
                         {
-                            HttpPeripheral peripheral = new HttpPeripheral(responseString, resourceUri);
-                            OnDiscoveringDevice(peripheral);
+                            try
+                            {
+                                HttpPeripheral peripheral = new HttpPeripheral(responseString, new Uri(ip));
+                                OnDiscoveringDevice(peripheral);
+                            } catch (Exception ex)
+                            {
+
+                            }
+
                         }
                     }
                     response.Dispose();
@@ -98,55 +104,6 @@ namespace Lumi4.LumiCommunication.CentralManager
                 progressBar.IsEnabled = false;
             }
             UpdateDeviceStateWithWifiStatus();
-        }
-
-        public void SetPollingDelay(int delayInMilliseconds) { PollingDelay = delayInMilliseconds; }
-
-        private void PollWebServerDataAvailability()
-        {
-            try
-            {
-                Task.Run(async () =>
-                {
-                    while (true)
-                    {
-                        if (PollingForDataCancelToken.IsCancellationRequested)
-                        {
-                            PollingForDataCancelToken.Token.ThrowIfCancellationRequested();
-                        }
-                        await GetData();
-                        await Task.Delay(PollingDelay);
-                    }
-                }, PollingForDataCancelToken.Token);
-            }
-            catch (TaskCanceledException)
-            {
-                // TODO: Add cancelation callback here.
-            }
-        }
-
-        public async Task<string> GetData()
-        {
-            var cts = new CancellationTokenSource();
-            cts.CancelAfter(TimeSpan.FromSeconds(30));
-
-            var webService = WebServerUrl + "buffer";
-            var resourceUri = new Uri(webService);
-            try
-            {
-                HttpResponseMessage response = await httpClient.PostAsync(resourceUri, null);
-                var message = await response.Content.ReadAsStringAsync();
-                if (message != "") { Debug.WriteLine(message); }
-                response.Dispose();
-                cts.Dispose();
-                return message;
-            }
-            catch (TaskCanceledException ex)
-            {
-                // Handle request being canceled due to timeout.
-                return "";
-            }
-            return "";
         }
 
         private async void UpdateDeviceStateWithWifiStatus()

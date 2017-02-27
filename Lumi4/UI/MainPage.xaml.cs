@@ -32,8 +32,7 @@ namespace Lumi4
     {
         const string serverUrl = "http://192.168.1.103/";
         WifiCentralManager centralManager = new WifiCentralManager(serverUrl);
-
-
+        HttpPeripheral Peripheral;
 
         public MainPage()
         {
@@ -60,22 +59,26 @@ namespace Lumi4
 
         private void CentralManager_DiscoveredDevice(object source, DiscoveredDeviceEventArgs args)
         {
-            var discoveredDeviceName = args.DiscoveredPeripheral.PeripheralInfo.Name;
+            var httpPeripheral = args.DiscoveredPeripheral as HttpPeripheral;
+            var discoveredDeviceName = httpPeripheral.PeripheralInfo.Name;
             IPComboBox.Items.Add(discoveredDeviceName);
             IPComboBox.SelectedIndex++;
+
+            httpPeripheral.Start();
+
+            args.DiscoveredPeripheral.AddStringToSendBuffer("Hey you!");
         }
 
         private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
         { 
-            DataConversion converter = new DataConversion();
-            var str = converter.ByteArrayToAsciiString(args.ReceivedData);
+
+            var str = DataConversion.ByteArrayToAsciiString(args.ReceivedData);
             Debug.WriteLine(str);
         }
 
         private void HttpPeripheral_SentData(object source, SentDataEventArgs args)
         {
-            DataConversion converter = new DataConversion();
-            var str = converter.ByteArrayToAsciiString(args.SentData);
+            var str = DataConversion.ByteArrayToAsciiString(args.SentData);
             Debug.WriteLine(str);
         }
 
@@ -91,7 +94,14 @@ namespace Lumi4
 
         private void Send_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if(Peripheral != null)
+            {
+                Peripheral.AddDataToSendBuffer(DataConversion.StringToListByteArray(SendTextBox.Text).ToArray());
+                SendTextBox.Text = "";
+            } else
+            {
+                // TODO: Add "Not Connected" to system message.
+            }
         }
 
         private async void Search_Click(object sender, RoutedEventArgs e)
@@ -99,7 +109,7 @@ namespace Lumi4
             var deviceState = centralManager.GetDeviceState();
             if (deviceState.State == DeviceState.States.On)
             {
-                centralManager.Search(99, 120, 300, ProgressBar);
+                centralManager.Search(99, 112, 300, ProgressBar);
             }
             else
             {

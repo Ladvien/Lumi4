@@ -103,6 +103,7 @@
     <Compile Include="LumiCommunication\DataHandling\DataConversion.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\BluetoothPeripheral.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\HttpPeripheral.cs" />
+    <Compile Include="LumiCommunication\PeripheralManager\HttpPeripheralInfo.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\IPeripheral.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\Peripheral.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\PeripheralBehavior.cs" />

@@ -3,20 +3,27 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Lumi4.LumiCommunication.PeripheralManager
 {
-    public abstract class Peripheral: IPeripheral
+    public abstract class Peripheral
     {
+        private const string WebServiceGetName = "getname";
+        private const string WebServiceSendData = "senddata";
+        private const string WebServiceSendString = "sendstring";
+        private const string WebServiceGetBuffer= "getbuffer";
+
+
         public event DeviceStateChangeEventHandler DeviceStateChange;
         public event ReceivedDataEventHandler ReceivedData;
         public event SentDataEventHandler SentData;
 
         #region fields
-        protected PeripheralBehavior _PeripheralBehavior = new PeripheralBehavior();
-        protected PeripheralInfo _PeripheralInfo = new PeripheralInfo();
+        abstract protected PeripheralBehavior PeripheralBehavior { get; set; }
 
         protected List<byte> _ReceivedBuffer = new List<byte>();
         protected List<byte> _SentBuffer = new List<byte>();
@@ -28,35 +35,14 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 
         #endregion constructor
 
-        public void Test()
-        {
-            byte[] receivedData = new byte[] { 0x33, 0x34, 0x44 };
-            byte[] sentData = new byte[] { 0x55, 0x54, 0x56 };
-            OnDeviceStateChange(_PeripheralInfo);
-            OnReceivedData(receivedData);
-            OnSentData(sentData);
-        }
+        #region properties
 
-        public PeripheralBehavior PeripheralBehavior
-        {
-            get
-            {
-                return _PeripheralBehavior;
-            }
 
-            set
-            {
-                _PeripheralBehavior = value;
-            }
-        }
+        protected CancellationTokenSource PollingForDataCancelToken = new CancellationTokenSource();
+        protected CancellationTokenSource PollingSendDataCancelToken = new CancellationTokenSource();
 
-        public PeripheralInfo PeripheralInfo
-        {
-            get
-            {
-                return _PeripheralInfo;
-            }
-        }
+
+        #endregion properties
 
         public List<byte> ReceivedBufferUpdated
         {
@@ -89,10 +75,9 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 
         public bool AddStringToSendBuffer(string str)
         {
-            DataConversion dataConverter = new DataConversion();
             try
             {
-                var listByteArray = dataConverter.StringToListByteArray(str);
+                var listByteArray = DataConversion.StringToListByteArray(str);
                 AddDataToSendBuffer(listByteArray.ToArray());
                 return true;
             } catch (Exception ex)
@@ -102,10 +87,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             }
         }
 
-        public PeripheralInfo GetDeviceInfo()
-        {
-            return _PeripheralInfo;
-        }
+        abstract public PeripheralInfo GetDeviceInfo();
 
         public void OnDeviceStateChange(PeripheralInfo peripheralInfo)
         {
@@ -132,7 +114,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         {
             try
             {
-                _PeripheralBehavior = peripheralBehavior;
+                PeripheralBehavior = peripheralBehavior;
                 return true;
             } catch (Exception ex)
             {
@@ -142,15 +124,11 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             
         }
 
-        public void Start()
-        {
-            throw new NotImplementedException();
-        }
+        abstract public void Start();
 
-        public void End()
-        {
-            throw new NotImplementedException();
-        }
+        abstract public void End();
+
+
     }
 
     public class DeviceStateChangedEventArgs: EventArgs

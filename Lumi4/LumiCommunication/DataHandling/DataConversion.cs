@@ -14,7 +14,7 @@ namespace Lumi4.LumiCommunication.DataHandling
 
         }
 
-        public List<byte> StringToListByteArray(string stringToConvert)
+        public static List<byte> StringToListByteArray(string stringToConvert)
         {
             List<byte> byteArray = new List<byte>();
 
@@ -32,7 +32,7 @@ namespace Lumi4.LumiCommunication.DataHandling
             return byteArray;
         }
 
-        public string ByteArrayToAsciiString(byte[] data)
+        public static string ByteArrayToAsciiString(byte[] data)
         {
             try
             {

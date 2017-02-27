@@ -126,9 +126,9 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="5*"/>
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Row="0"  Content="Send" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                <Button Grid.Row="0"  Content="Send" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Send_Button_Click"/>
                                 <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto">
-                                    <TextBox Padding="12" MinWidth="360" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></TextBox>
+                                    <TextBox x:Name="SendTextBox" Padding="12" MinWidth="360" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></TextBox>
                                 </ScrollViewer>
                             </Grid>
                         </StackPanel>
