@@ -15,6 +15,8 @@ namespace Lumi4.LumiCommunication.CentralManager
 {
     class WifiCentralManager: Central
     {
+        private const string WebServiceGetName = "name";
+
         #region properties
         private Uri IP { get; set; }
         private int PollingDelay { get; set; }
@@ -43,12 +45,20 @@ namespace Lumi4.LumiCommunication.CentralManager
 
         public async void Search(int startIndex, int endIndex, int timeout = 300, ProgressBar progressBar = null)
         {
+
+            // 1. Convert the passed IP down to 3 places.
+            // 2. Create System.Net.Http.HttpClient (NOTE: Windows HttpClient doesn't seem to have 
+            //    adjustable timeout.)
+            // 3. Set the POST string to "name".  This will be used as a handshake.
+            // 4. Iterate over the IP range, POSTing handshake.
+            // 5. If handshake successful at IP, create a peripheral and add it to list.
+            // 6. Update DeviceState: Searching->On
+            // 7. After iteration, return list, even if empty.
+            
             DataConversion dataConverter = new DataConversion();
             var threePartIP = DataConversion.seperateStringByCharacterIndex(IP.ToString(), 3, '.');
             var httpClient = new System.Net.Http.HttpClient();
             httpClient.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
-            var webService = WebServerUrl + "name";
-            List<Peripheral> discoveredIPs = new List<Peripheral>();
 
             if (progressBar != null)
             {
@@ -62,13 +72,17 @@ namespace Lumi4.LumiCommunication.CentralManager
             {
                 try
                 {
-                    string ip = threePartIP + i.ToString() + "/";
+                    string ip = threePartIP + i.ToString() + "/" + WebServiceGetName;
                     var resourceUri = new Uri(ip);
                     var response = await httpClient.PostAsync(resourceUri, null);
                     if (response.IsSuccessStatusCode == true)
                     {
-                        HttpPeripheral peripheral = new HttpPeripheral(resourceUri);
-                        discoveredIPs.Add(peripheral);
+                        var responseString = await response.Content.ReadAsStringAsync();
+                        if (responseString != "")
+                        {
+                            HttpPeripheral peripheral = new HttpPeripheral(responseString, resourceUri);
+                            OnDiscoveringDevice(peripheral);
+                        }
                     }
                     response.Dispose();
                 }
@@ -84,7 +98,6 @@ namespace Lumi4.LumiCommunication.CentralManager
                 progressBar.IsEnabled = false;
             }
             UpdateDeviceStateWithWifiStatus();
-            OnDiscoveringDevice(discoveredIPs);            
         }
 
         public void SetPollingDelay(int delayInMilliseconds) { PollingDelay = delayInMilliseconds; }
@@ -139,7 +152,7 @@ namespace Lumi4.LumiCommunication.CentralManager
         private async void UpdateDeviceStateWithWifiStatus()
         {
             var wifiOn = await IsWifiOn();
-            if (wifiOn) { this.DeviceState.State = States.On; } else { DeviceState.State = States.Off; }
+            if (wifiOn) { DeviceState.State = States.On; } else { DeviceState.State = States.Off; }
             OnDeviceStateChange(DeviceState);
         }
 

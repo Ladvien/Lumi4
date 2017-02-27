@@ -47,10 +47,10 @@ namespace Lumi4.LumiCommunication.CentralManager
             DeviceStateChange?.Invoke(this, deviceStateChangeEventArgs);
         }
 
-        public void OnDiscoveringDevice(List<Peripheral> peripheralList)
+        public void OnDiscoveringDevice(Peripheral peripheral)
         {
             DiscoveredDeviceEventArgs args = new DiscoveredDeviceEventArgs();
-            args.Peripherals = peripheralList;
+            args.DiscoveredPeripheral = peripheral;
             DiscoveredDevice?.Invoke(this, args);
         }
 
@@ -69,6 +69,6 @@ namespace Lumi4.LumiCommunication.CentralManager
 
     public class DiscoveredDeviceEventArgs: EventArgs
     {
-        public List<Peripheral> Peripherals { get; set; }
+        public Peripheral DiscoveredPeripheral { get; set; }
     }
 }

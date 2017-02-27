@@ -25,10 +25,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         #endregion fields
 
         #region constructor
-        internal Peripheral()
-        {
-            _PeripheralInfo.Name = "Bob";
-        }
+
         #endregion constructor
 
         public void Test()

@@ -60,11 +60,9 @@ namespace Lumi4
 
         private void CentralManager_DiscoveredDevice(object source, DiscoveredDeviceEventArgs args)
         {
-            foreach(var peripheral in args.Peripherals)
-            {
-                Debug.WriteLine(peripheral.PeripheralInfo.Name);
-            }
-            
+            var discoveredDeviceName = args.DiscoveredPeripheral.PeripheralInfo.Name;
+            IPComboBox.Items.Add(discoveredDeviceName);
+            IPComboBox.SelectedIndex++;
         }
 
         private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
@@ -88,7 +86,7 @@ namespace Lumi4
 
         private async void Get_Button_Click(object sender, RoutedEventArgs e)
         {
-
+             
         }
 
         private void Send_Button_Click(object sender, RoutedEventArgs e)

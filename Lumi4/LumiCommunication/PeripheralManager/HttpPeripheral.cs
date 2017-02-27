@@ -12,9 +12,10 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         private Uri PeripheralsUri { get; set; }
         #endregion
 
-        public HttpPeripheral(Uri uri)
+        public HttpPeripheral(string name, Uri uri)
         {
             PeripheralsUri = uri;
+            this.PeripheralInfo.Name = name;
         }
     }
 }

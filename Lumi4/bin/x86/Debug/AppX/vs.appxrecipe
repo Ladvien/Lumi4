@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-22T13:08:08.921</Modified>
+      <Modified>2017-02-27T10:16:07.101</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Lumi4.exe">
       <PackagePath>entrypoint\Lumi4.exe</PackagePath>
-      <Modified>2017-02-22T13:08:08.268</Modified>
+      <Modified>2017-02-27T10:16:06.699</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -692,7 +692,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Core\Lumi4.exe">
       <PackagePath>Lumi4.exe</PackagePath>
-      <Modified>2017-02-22T13:08:08.911</Modified>
+      <Modified>2017-02-27T10:16:07.097</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
