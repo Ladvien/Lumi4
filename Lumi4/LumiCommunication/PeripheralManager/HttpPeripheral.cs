@@ -15,9 +15,11 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         public const string WebServiceSendData = "senddata";
         public const string WebServiceSendString = "sendstring";
         public const string WebServiceGetBuffer = "getbuffer";
+        public const string WebServiceConnect = "connect";
+        public const string WebServiceDisconnect = "disconnect";
 
         #region properties
-        private Uri PeripheralsUri { get; set; }
+        
         public HttpPeripheralInfo PeripheralInfo { get; }
         HttpClient httpClient = new HttpClient();
 
@@ -32,8 +34,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         {
             PeripheralInfo = new HttpPeripheralInfo(uri, name);
             PeripheralBehavior = new PeripheralBehavior();
-            PeripheralsUri = uri;
-            PeripheralInfo.Name = name;
         }
 
         override public void Start()
@@ -104,7 +104,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             try
             {
                 HttpResponseMessage response = await httpClient.PostAsync(resourceUri, null);
-                var message = await response.Content.ReadAsStringAsync();.
+                var message = await response.Content.ReadAsStringAsync();
                 if (message != "") {
                     Debug.WriteLine(message);
                     OnReceivedData(DataHandling.DataConversion.StringToListByteArray(message).ToArray());

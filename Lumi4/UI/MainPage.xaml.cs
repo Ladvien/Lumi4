@@ -57,14 +57,14 @@ namespace Lumi4
             Debug.WriteLine(args.DeviceState.State);           
         }
 
-        private void CentralManager_DiscoveredDevice(object source, DiscoveredDeviceEventArgs args)
+        private async void CentralManager_DiscoveredDevice(object source, DiscoveredDeviceEventArgs args)
         {
             var httpPeripheral = args.DiscoveredPeripheral as HttpPeripheral;
             var discoveredDeviceName = httpPeripheral.PeripheralInfo.Name;
             IPComboBox.Items.Add(discoveredDeviceName);
             IPComboBox.SelectedIndex++;
-
-            httpPeripheral.Start();
+            await centralManager.Connect(httpPeripheral);
+            //httpPeripheral.Start();
 
             args.DiscoveredPeripheral.AddStringToSendBuffer("Hey you!");
         }
@@ -122,6 +122,9 @@ namespace Lumi4
             }
         }
 
+        private void ConnectButton_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }

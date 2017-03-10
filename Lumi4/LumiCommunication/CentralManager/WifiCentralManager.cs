@@ -126,6 +126,29 @@ namespace Lumi4.LumiCommunication.CentralManager
             }
             return false;
         }
+
+        override async public Task<bool> Connect(Peripheral peripheral)
+        {
+            try
+            {
+                var httpPeripheral = peripheral as HttpPeripheral;
+                Uri ip = httpPeripheral.PeripheralInfo.IP;
+                var resourceUri = new Uri(ip + HttpPeripheral.WebServiceConnect);
+                var response = await httpClient.PostAsync(resourceUri, null);
+            } catch (Exception ex)
+            {
+                Debug.WriteLine("Exception in WiFiCentralManager: " + ex.Message);
+                return false;
+            }
+            
+            return true;
+        }
+
+        public override async Task<bool> Disconnect(Peripheral peripheral)
+        {
+            throw new NotImplementedException();
+            return true;
+        }
     }
 
 }

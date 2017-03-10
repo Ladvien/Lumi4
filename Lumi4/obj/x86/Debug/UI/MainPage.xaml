@@ -11,7 +11,7 @@
 
     <StackPanel >
         <TextBlock HorizontalAlignment="Center" FontSize="44">Lumi2</TextBlock>
-        <ProgressBar x:Name="ProgressBar" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <ProgressBar x:ConnectionId='1' x:Name="ProgressBar" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
         <Pivot>
             <Pivot.Items>
                 <PivotItem>
@@ -35,7 +35,7 @@
                                                     <ColumnDefinition Width="1*"/>
                                                 </Grid.ColumnDefinitions>
                                                 <TextBlock Grid.Column="0" Text="Device Name:" Padding="2"/>
-                                                <TextBlock x:Name="DeviceNameLabel" Grid.Column="1" Padding="2" Text=""/>
+                                                <TextBlock x:ConnectionId='9' x:Name="DeviceNameLabel" Grid.Column="1" Padding="2" Text=""/>
 
                                             </Grid>
                                             <TextBlock Padding="5">IP Address:</TextBlock>
@@ -43,17 +43,17 @@
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="1*"/>
                                                 </Grid.ColumnDefinitions>
-                                                <ComboBox x:Name="IPComboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                                <ComboBox x:ConnectionId='8' x:Name="IPComboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                             </Grid>
                                             <Line Stroke="{ThemeResource ApplicationForegroundThemeBrush}" X1="0" X2="1" Stretch="Fill" StrokeThickness="1" HorizontalAlignment="Stretch" Margin="0,5,0,5"/>
                                             <StackPanel Orientation="Horizontal">
-                                                <Button x:Name="Search"  Padding="2" Click="Search_Click"  >
+                                                <Button x:ConnectionId='6' x:Name="Search"  Padding="2"                       >
                                                     <StackPanel>
                                                         <TextBlock Text="&#xE721;" VerticalAlignment="Stretch" HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets" AutomationProperties.Name="Favorite" />
                                                         <TextBlock Text="Search"/>
                                                     </StackPanel>
                                                 </Button>
-                                                <Button Padding="2" Click="ConnectButton_Click">
+                                                <Button x:ConnectionId='7' Padding="2"                            >
                                                     <StackPanel>
                                                         <TextBlock Text="&#59163;" VerticalAlignment="Stretch" HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets" AutomationProperties.Name="Favorite" />
                                                         <TextBlock Text="Connect"/>
@@ -101,7 +101,7 @@
                         <local:TabHeader Label="RX / TX" Glyph="&#xE13C;"/>
                     </PivotItem.Header>
                     <StackPanel>
-                        <Grid x:Name="ReceivedTextGrid" RelativePanel.Below="MainStack" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid x:ConnectionId='2' x:Name="ReceivedTextGrid" RelativePanel.Below="MainStack" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="10*"/>
                                 <RowDefinition Height="auto"/>
@@ -111,7 +111,7 @@
                             </Grid.ColumnDefinitions>
                             <ScrollViewer Grid.Row="0" HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                                 <StackPanel HorizontalAlignment="Stretch">
-                                    <TextBlock  x:Name="ReceivedTextBlock" Padding="12" Grid.Row="0"
+                                    <TextBlock x:ConnectionId='5'  x:Name="ReceivedTextBlock" Padding="12" Grid.Row="0"
                     VerticalAlignment="Stretch"
                     HorizontalAlignment="Stretch"
                     FontFamily="New Courier">
@@ -126,9 +126,9 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="5*"/>
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Row="0"  Content="Send" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Send_Button_Click"/>
+                                <Button x:ConnectionId='3' Grid.Row="0"  Content="Send" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"                          />
                                 <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto">
-                                    <TextBox x:Name="SendTextBox" Padding="12" MinWidth="360" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></TextBox>
+                                    <TextBox x:ConnectionId='4' x:Name="SendTextBox" Padding="12" MinWidth="360" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></TextBox>
                                 </ScrollViewer>
                             </Grid>
                         </StackPanel>
@@ -147,10 +147,10 @@
         <AppBar IsOpen="True" IsSticky="True">
             <StackPanel Orientation="Horizontal">
                 <AppBarButton Label="RX" IsHitTestVisible="False">
-                    <Rectangle  x:Name="rxIndicator" RadiusX="10" RadiusY="10" Width="20" Height="20" Fill="Red"></Rectangle>
+                    <Rectangle x:ConnectionId='11'  x:Name="rxIndicator" RadiusX="10" RadiusY="10" Width="20" Height="20" Fill="Red"></Rectangle>
                 </AppBarButton>
                 <AppBarButton Label="TX" IsHitTestVisible="False">
-                    <Rectangle RadiusX="10" RadiusY="10" x:Name="txIndicator" Width="20" Height="20" Fill="Red"></Rectangle>
+                    <Rectangle x:ConnectionId='10' RadiusX="10" RadiusY="10" x:Name="txIndicator" Width="20" Height="20" Fill="Red"></Rectangle>
                 </AppBarButton>
                 <AppBarSeparator/>
 
@@ -158,3 +158,4 @@
         </AppBar>
     </Page.BottomAppBar>
 </Page>
+

@@ -59,6 +59,9 @@ namespace Lumi4.LumiCommunication.CentralManager
             return this.DeviceState;
         }
 
+        abstract public Task<bool> Connect(Peripheral peripheral);
+
+        abstract public Task<bool> Disconnect(Peripheral peripheral);
         #endregion methods
     }
 
@@ -71,4 +74,7 @@ namespace Lumi4.LumiCommunication.CentralManager
     {
         public Peripheral DiscoveredPeripheral { get; set; }
     }
+
+    
+
 }

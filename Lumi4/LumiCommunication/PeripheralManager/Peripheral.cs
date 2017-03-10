@@ -12,12 +12,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 {
     public abstract class Peripheral
     {
-        private const string WebServiceGetName = "getname";
-        private const string WebServiceSendData = "senddata";
-        private const string WebServiceSendString = "sendstring";
-        private const string WebServiceGetBuffer= "getbuffer";
-
-
         public event DeviceStateChangeEventHandler DeviceStateChange;
         public event ReceivedDataEventHandler ReceivedData;
         public event SentDataEventHandler SentData;
