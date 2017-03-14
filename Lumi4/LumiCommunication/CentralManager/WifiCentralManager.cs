@@ -13,10 +13,8 @@ using Lumi4.DeviceState;
 using Lumi4.LumiCommunication.PeripheralManager;
 namespace Lumi4.LumiCommunication.CentralManager
 {
-    class WifiCentralManager: Central
+    public class WifiCentralManager: Central
     {
-        
-
         #region properties
         private Uri IP { get; set; }
 
@@ -25,16 +23,10 @@ namespace Lumi4.LumiCommunication.CentralManager
 
         #endregion
 
-        public WifiCentralManager(string ip)
+        public WifiCentralManager(Uri ip)
         {
-            try
-            {
-                IP = new Uri(ip);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Failed to construct WifiCentralManager: " + ex.Message);
-            }
+            if (ip == null) throw new ArgumentNullException();
+            else IP = ip;
         }
 
         public override void Start()
