@@ -47,7 +47,7 @@ namespace Lumi4.LumiCommunication.CentralManager
             // 7. After iteration, return list, even if empty.
             
             DataConversion dataConverter = new DataConversion();
-            var threePartIP = DataConversion.seperateStringByCharacterIndex(IP.ToString(), 3, '.');
+            var threePartIP = DataConversion.SeperateStringByCharacterIndex(IP.ToString(), 3, '.');
             var httpClient = new System.Net.Http.HttpClient();
             httpClient.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
 
@@ -63,7 +63,7 @@ namespace Lumi4.LumiCommunication.CentralManager
             {
                 try
                 {
-                    string ip = threePartIP + i.ToString() + "/";
+                     string ip = threePartIP + i.ToString() + "/";
                     var resourceUri = new Uri(ip + HttpPeripheral.WebServiceGetName);
                     var response = await httpClient.PostAsync(resourceUri, null);
                     if (response.IsSuccessStatusCode == true)

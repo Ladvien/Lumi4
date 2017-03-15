@@ -51,8 +51,6 @@ namespace Lumi4
             centralManager.DeviceStateChange += CentralManager_DeviceStateChange;
             centralManager.DiscoveredDevice += CentralManager_DiscoveredDevice;
             centralManager.Start();
-            var b = new WifiCentralManager(null);
-            
         }
 
         private async void CentralManager_DeviceStateChange(object source, DeviceStateChangeEventArgs args)
@@ -68,6 +66,7 @@ namespace Lumi4
             IPComboBox.SelectedIndex++;
             await centralManager.Connect(httpPeripheral);
             //httpPeripheral.Start();
+            
 
             args.DiscoveredPeripheral.AddStringToSendBuffer("Hey you!");
         }

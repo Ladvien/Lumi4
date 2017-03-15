@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lumi4.LumiCommunication.DataHandling
 {
-    class DataConversion
+    public class DataConversion
     {
         public DataConversion()
         {
@@ -45,13 +45,15 @@ namespace Lumi4.LumiCommunication.DataHandling
         }
 
 
-        public static string seperateStringByCharacterIndex(string s, int index, Char character)
+        public static string SeperateStringByCharacterIndex(string s, int startIndex, Char character)
         {
             int charOccurance = 0;
+            if (character < ' ' || character > '~') { return ""; }
+            if (startIndex < 1) startIndex = 1;
             for(int i = 0; i < s.Length; i++)
             {
                 if(s[i] == character) { charOccurance++; }
-                if(charOccurance == index) { return s.Substring(0, i + 1); }
+                if(charOccurance == startIndex) { return s.Substring(i + 1, s.Length - i - 1); }
             }
             return "";
         }
