@@ -11,7 +11,7 @@
 
     <StackPanel >
         <TextBlock HorizontalAlignment="Center" FontSize="44">Lumi2</TextBlock>
-        <ProgressBar x:Name="ProgressBar" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <ProgressBar x:Name="ProgressBar" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="AntiqueWhite"/>
         <Pivot>
             <Pivot.Items>
                 <PivotItem>

@@ -24,6 +24,7 @@ C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.Tests\bin\x64
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.Tests\bin\x64\Debug\System.Xml.dll
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.Tests\bin\x64\Debug\System.dll
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.Tests\bin\x64\Debug\Microsoft.VisualBasic.dll
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.Tests\bin\x64\Debug\nunit.framework.dll
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.Tests\bin\x64\Debug\System.Collections.dll
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.Tests\bin\x64\Debug\System.Diagnostics.Tools.dll
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.Tests\bin\x64\Debug\System.Diagnostics.Tracing.dll

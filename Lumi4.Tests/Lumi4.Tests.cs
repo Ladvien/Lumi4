@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Lumi4.LumiCommunication.CentralManager;
 using Lumi4.LumiCommunication.DataHandling;
-
+using Lumi4.LumiCommunication.PeripheralManager;
 
 // How to write unit tests
 // https://channel9.msdn.com/Shows/Visual-Studio-Toolbox/Getting-Started-with-Unit-Testing-Part-1
@@ -20,96 +20,92 @@ using Lumi4.LumiCommunication.DataHandling;
 namespace Lumi4.Tests
 {
     [TestClass]
-    public class CentralManagerTests
+    public class DataConversionTests
     {
         [TestClass]
-        public class TheWifiCentralManagerConstructor
+        public class SeperateStringByCharacterIndexMethod
         {
             [TestMethod]
-            public void WifiCentralManager_ValidUriProvided_ReturnWifiCentralManagerObj()
+            public void DataConversion_StringWithThreeSeperatorsFirstIndex_ReturnSeperatedString()
             {
-                // Arrange
-                Uri ip = new Uri("http://192.145.1.1/");
-                // Act
-                WifiCentralManager wifiCentralManager = new WifiCentralManager(ip);
-                // Assert
-                Assert.AreEqual(typeof(WifiCentralManager), wifiCentralManager.GetType());
+                var seperatedString = DataConversion.SeperateStringByCharacterIndex("123.123", 0, '.');
+                Assert.AreEqual("123", seperatedString);
             }
 
             [TestMethod]
-            public void WifiCentralManager_NullProvided_ThrowException()
+            public void DataConversion_StringWithThreeSeperatorsNegativeIndex_ReturnSeperatedString()
             {
-                try
-                {
-                    var wifiCentralManager = new WifiCentralManager(null);
-                    Assert.Fail("An exception should have been thrown");
-                }
-                catch (ArgumentNullException ae)
-                {
-                    Assert.AreEqual("Value cannot be null.", ae.Message);
-                }
+                var seperatedString = DataConversion.SeperateStringByCharacterIndex("123.12.3.", -1, '.');
+                Assert.AreEqual("12.3.", seperatedString);
+            }
+
+            [TestMethod]
+            public void DataConversion_EmptyString_ReturnSeperatedString()
+            {
+                var seperatedString = DataConversion.SeperateStringByCharacterIndex("", 1, '.');
+                Assert.AreEqual("", seperatedString);
+            }
+
+            [TestMethod]
+            public void DataConversion_StringWithAllSeperators_ReturnSeperatedString()
+            {
+                var seperatedString = DataConversion.SeperateStringByCharacterIndex("....", 1, '.');
+                Assert.AreEqual("...", seperatedString);
+            }
+
+            [TestMethod]
+            public void DataConversion_StringWithStartIndexThree_ReturnSeperatedString()
+            {
+                var seperatedString = DataConversion.SeperateStringByCharacterIndex(".123.123.123", 0, '.');
+                Assert.AreEqual("123.123.123", seperatedString);
+            }
+
+            [TestMethod]
+            public void DataConversion_LowNonReadableSeperationChar_ReturnEmptyString()
+            {
+                var seperatedString = DataConversion.SeperateStringByCharacterIndex(".123.123.123", 2, Convert.ToChar(0x02));
+                Assert.AreEqual("", seperatedString);
+            }
+
+            [TestMethod]
+            public void DataConversion_HighNonReadableSeperationChar_ReturnEmptyString()
+            {
+                var seperatedString = DataConversion.SeperateStringByCharacterIndex(".123.123.123", 2, Convert.ToChar(0xFF));
+                Assert.AreEqual("", seperatedString);
             }
         }
-        
 
         [TestClass]
-        public class DataConversionTests
+        public class WifiCentralManagerTests
         {
             [TestClass]
-            public class SeperateStringByCharacterIndexMethod
+            public class Constructor
             {
                 [TestMethod]
-                public void DataConversion_StringWithThreeSeperatorsFirstIndex_ReturnSeperatedString()
+                public void WifiCentralManagerConstructor_Null_Exception()
                 {
-                    var seperatedString = DataConversion.SeperateStringByCharacterIndex("123.123", 0, '.');
-                    Assert.AreEqual("123", seperatedString);
+                    bool ThrewNull = false;
+                    try
+                    {
+
+                        WifiCentralManager wifiCentralManager = new WifiCentralManager(null);
+                    }
+                    catch (Exception ex)
+                    {
+                        ThrewNull = true;
+                    }
+                    Assert.IsTrue(ThrewNull);
                 }
 
                 [TestMethod]
-                public void DataConversion_StringWithThreeSeperatorsNegativeIndex_ReturnSeperatedString()
+                public void WifiCentralManager_Constructor_WifiCentralManager()
                 {
-                    var seperatedString = DataConversion.SeperateStringByCharacterIndex("123.12.3.", -1, '.');
-                    Assert.AreEqual("12.3.", seperatedString);
+                    var ip = new Uri("http://192.168.1.100/");
+                    WifiCentralManager wifiCentralManager = new WifiCentralManager(ip);
+                    Assert.IsNotNull(wifiCentralManager);
                 }
-
-                [TestMethod]
-                public void DataConversion_EmptyString_ReturnSeperatedString()
-                {
-                    var seperatedString = DataConversion.SeperateStringByCharacterIndex("", 1, '.');
-                    Assert.AreEqual("", seperatedString);
-                }
-
-                [TestMethod]
-                public void DataConversion_StringWithAllSeperators_ReturnSeperatedString()
-                {
-                    var seperatedString = DataConversion.SeperateStringByCharacterIndex("....", 1, '.');
-                    Assert.AreEqual("...", seperatedString);
-                }
-
-                [TestMethod]
-                public void DataConversion_StringWithStartIndexThree_ReturnSeperatedString()
-                {
-                    var seperatedString = DataConversion.SeperateStringByCharacterIndex(".123.123.123", 0, '.');
-                    Assert.AreEqual("123.123.123", seperatedString);
-                }
-
-                [TestMethod]
-                public void DataConversion_LowNonReadableSeperationChar_ReturnEmptyString()
-                {
-                    var seperatedString = DataConversion.SeperateStringByCharacterIndex(".123.123.123", 2, Convert.ToChar(0x02));
-                    Assert.AreEqual("", seperatedString);
-                }
-
-                [TestMethod]
-                public void DataConversion_HighNonReadableSeperationChar_ReturnEmptyString()
-                {
-                    var seperatedString = DataConversion.SeperateStringByCharacterIndex(".123.123.123", 2, Convert.ToChar(0xFF));
-                    Assert.AreEqual("", seperatedString);
-                }
-
-
-
             }
         }
     }
 } 
+

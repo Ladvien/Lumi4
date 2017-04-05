@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumi4", "Lumi4\Lumi4.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumi4.Tests", "Lumi4.Tests\Lumi4.Tests.csproj", "{B9E3F57E-7AE6-4AAE-B976-ED24E52DFC26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumi4.IntegrationTests", "Lumi4.IntegrationTests\Lumi4.IntegrationTests.csproj", "{53CBFB71-052C-4962-A223-A8AAF8E63444}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,26 @@ Global
 		{B9E3F57E-7AE6-4AAE-B976-ED24E52DFC26}.Release|x86.ActiveCfg = Release|x86
 		{B9E3F57E-7AE6-4AAE-B976-ED24E52DFC26}.Release|x86.Build.0 = Release|x86
 		{B9E3F57E-7AE6-4AAE-B976-ED24E52DFC26}.Release|x86.Deploy.0 = Release|x86
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Debug|ARM.ActiveCfg = Debug|ARM
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Debug|ARM.Build.0 = Debug|ARM
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Debug|ARM.Deploy.0 = Debug|ARM
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Debug|x64.ActiveCfg = Debug|x64
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Debug|x64.Build.0 = Debug|x64
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Debug|x64.Deploy.0 = Debug|x64
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Debug|x86.ActiveCfg = Debug|x86
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Debug|x86.Build.0 = Debug|x86
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Debug|x86.Deploy.0 = Debug|x86
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Release|Any CPU.ActiveCfg = Release|x86
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Release|ARM.ActiveCfg = Release|ARM
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Release|ARM.Build.0 = Release|ARM
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Release|ARM.Deploy.0 = Release|ARM
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Release|x64.ActiveCfg = Release|x64
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Release|x64.Build.0 = Release|x64
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Release|x64.Deploy.0 = Release|x64
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Release|x86.ActiveCfg = Release|x86
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Release|x86.Build.0 = Release|x86
+		{53CBFB71-052C-4962-A223-A8AAF8E63444}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

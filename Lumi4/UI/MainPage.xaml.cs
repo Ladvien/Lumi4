@@ -51,6 +51,9 @@ namespace Lumi4
             centralManager.DeviceStateChange += CentralManager_DeviceStateChange;
             centralManager.DiscoveredDevice += CentralManager_DiscoveredDevice;
             centralManager.Start();
+
+            ProgressBar.Maximum = 100;
+            ProgressBar.Value = 100;
         }
 
         private async void CentralManager_DeviceStateChange(object source, DeviceStateChangeEventArgs args)
@@ -111,7 +114,7 @@ namespace Lumi4
             var deviceState = centralManager.GetDeviceState();
             if (deviceState.State == DeviceState.States.On)
             {
-                centralManager.Search(99, 112, 300, ProgressBar);
+                centralManager.Search(99, 120, 300, ProgressBar);
             }
             else
             {

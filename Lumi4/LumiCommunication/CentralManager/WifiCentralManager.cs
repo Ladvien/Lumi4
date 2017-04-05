@@ -9,8 +9,18 @@ using Windows.Devices.Radios;
 using Lumi4.LumiCommunication.DataHandling;
 using System.Net.Http;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 using Lumi4.DeviceState;
 using Lumi4.LumiCommunication.PeripheralManager;
+using System.Net;
+
 namespace Lumi4.LumiCommunication.CentralManager
 {
     public class WifiCentralManager: Central
@@ -47,13 +57,15 @@ namespace Lumi4.LumiCommunication.CentralManager
             // 7. After iteration, return list, even if empty.
             
             DataConversion dataConverter = new DataConversion();
-            var threePartIP = DataConversion.SeperateStringByCharacterIndex(IP.ToString(), 3, '.');
+            var fourthPartOfIp = DataConversion.SeperateStringByCharacterIndex(IP.ToString(), 3, '.');
+            var threePartIP = IP.ToString().Replace(fourthPartOfIp, "");
             var httpClient = new System.Net.Http.HttpClient();
             httpClient.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
 
             if (progressBar != null)
             {
                 progressBar.Maximum = endIndex - startIndex;
+                progressBar.Value = 0;
             }
 
             DeviceState.State = States.Searching;
@@ -63,7 +75,7 @@ namespace Lumi4.LumiCommunication.CentralManager
             {
                 try
                 {
-                     string ip = threePartIP + i.ToString() + "/";
+                    string ip = threePartIP + i.ToString() + "/";
                     var resourceUri = new Uri(ip + HttpPeripheral.WebServiceGetName);
                     var response = await httpClient.PostAsync(resourceUri, null);
                     if (response.IsSuccessStatusCode == true)
@@ -141,6 +153,7 @@ namespace Lumi4.LumiCommunication.CentralManager
             throw new NotImplementedException();
             return true;
         }
+
     }
 
 }
