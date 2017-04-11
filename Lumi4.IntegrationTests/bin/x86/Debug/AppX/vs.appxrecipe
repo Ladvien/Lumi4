@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.IntegrationTests\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-05T11:54:15.778</Modified>
+      <Modified>2017-04-07T10:04:10.528</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.IntegrationTests\bin\x86\Debug\Lumi4.IntegrationTests.exe">
       <PackagePath>entrypoint\Lumi4.IntegrationTests.exe</PackagePath>
-      <Modified>2017-04-05T11:54:11.805</Modified>
+      <Modified>2017-04-07T10:04:06.630</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Lumi4.exe">
       <PackagePath>Lumi4.exe</PackagePath>
@@ -798,7 +798,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4.IntegrationTests\bin\x86\Debug\Core\Lumi4.IntegrationTests.exe">
       <PackagePath>Lumi4.IntegrationTests.exe</PackagePath>
-      <Modified>2017-04-05T11:54:15.768</Modified>
+      <Modified>2017-04-07T10:04:10.520</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -20,6 +20,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Padding" />
       <RootProperty Name="Orientation" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="HorizontalAlignment" />
@@ -29,12 +30,14 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Text" />
+      <RootProperty Name="IsTextSelectionEnabled" />
+      <RootProperty Name="TextAlignment" />
+      <RootProperty Name="TextWrapping" />
       <RootProperty Name="Style" />
       <RootProperty Name="LineStackingStrategy" />
       <RootProperty Name="LineHeight" />
       <RootProperty Name="MaxLines" />
       <RootProperty Name="IsTextScaleFactorEnabled" />
-      <RootProperty Name="TextAlignment" />
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ProgressBar">
@@ -94,6 +97,7 @@
       <RootProperty Name="MinWidth" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="TextAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
@@ -115,6 +119,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBar">
       <RootProperty Name="IsOpen" />

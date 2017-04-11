@@ -99,11 +99,11 @@
     <Compile Include="LumiCommunication\CentralManager\Central.cs" />
     <Compile Include="LumiCommunication\CentralManager\CentralBehavior.cs" />
     <Compile Include="LumiCommunication\CentralManager\CentralInfo.cs" />
-    <Compile Include="LumiCommunication\CentralManager\WifiCentralManager.cs" />
+    <Compile Include="LumiCommunication\CentralManager\WebServerCentralManager.cs" />
     <Compile Include="LumiCommunication\DataHandling\DataConversion.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\BluetoothPeripheral.cs" />
-    <Compile Include="LumiCommunication\PeripheralManager\HttpPeripheral.cs" />
-    <Compile Include="LumiCommunication\PeripheralManager\HttpPeripheralInfo.cs" />
+    <Compile Include="LumiCommunication\PeripheralManager\WebServerPeripheral.cs" />
+    <Compile Include="LumiCommunication\PeripheralManager\WebServerPeripheralInfo.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\IPeripheral.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\Peripheral.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\PeripheralBehavior.cs" />

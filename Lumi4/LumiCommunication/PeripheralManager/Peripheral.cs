@@ -81,8 +81,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             }
         }
 
-        abstract public PeripheralInfo GetDeviceInfo();
-
         public void OnDeviceStateChange(PeripheralInfo peripheralInfo)
         {
             DeviceStateChangedEventArgs deviceStateChangedEventArgs = new DeviceStateChangedEventArgs();

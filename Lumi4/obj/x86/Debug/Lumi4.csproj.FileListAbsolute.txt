@@ -214,3 +214,4 @@ C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\obj\x86\Debug\Lumi4.csprojResolveAssemblyReference.cache

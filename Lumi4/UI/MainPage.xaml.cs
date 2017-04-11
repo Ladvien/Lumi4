@@ -32,8 +32,8 @@ namespace Lumi4
     {
         const string serverUrl = "http://192.168.1.103/";
         static Uri serverUri = new Uri(serverUrl);
-        WifiCentralManager centralManager = new WifiCentralManager(serverUri);
-        HttpPeripheral Peripheral;
+        WebServerCentralManager centralManager = new WebServerCentralManager(serverUri);
+        WebServerPeripheral Peripheral;
 
         public MainPage()
         {
@@ -44,9 +44,9 @@ namespace Lumi4
             var bounds = ApplicationView.GetForCurrentView().VisibleBounds;
             byte[] testPacket = { 0x48, 0x45, 0x59, 0x20, 0x59, 0x4F, 0x55 };
 
-            const string serverUrl = "http://192.168.1.103/";
+            string serverUrl = "http://192.168.1.103/";
             Uri serverUri = new Uri(serverUrl);
-            centralManager = new WifiCentralManager(serverUri);
+            centralManager = new WebServerCentralManager(serverUri);
 
             centralManager.DeviceStateChange += CentralManager_DeviceStateChange;
             centralManager.DiscoveredDevice += CentralManager_DiscoveredDevice;
@@ -63,8 +63,9 @@ namespace Lumi4
 
         private async void CentralManager_DiscoveredDevice(object source, DiscoveredDeviceEventArgs args)
         {
-            var httpPeripheral = args.DiscoveredPeripheral as HttpPeripheral;
+            var httpPeripheral = args.DiscoveredPeripheral as WebServerPeripheral;
             var discoveredDeviceName = httpPeripheral.PeripheralInfo.Name;
+
             IPComboBox.Items.Add(discoveredDeviceName);
             IPComboBox.SelectedIndex++;
             await centralManager.Connect(httpPeripheral);
@@ -111,10 +112,27 @@ namespace Lumi4
 
         private async void Search_Click(object sender, RoutedEventArgs e)
         {
+
+            var approximateNetwork = DataConversion.GetHttpStringFromStrings(NetworkIDOne.Text,
+                                                                             NetworkIDTwo.Text,
+                                                                             HostIDOne.Text,
+                                                                             HostIDTwo.Text);
+            try
+            {
+                Uri approximateNetworkUri = new Uri(approximateNetwork);
+                if (approximateNetwork != null)
+                {
+                    centralManager.SetApproximateNetwork(approximateNetworkUri);
+                }
+            } catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            
             var deviceState = centralManager.GetDeviceState();
             if (deviceState.State == DeviceState.States.On)
             {
-                centralManager.Search(99, 120, 300, ProgressBar);
+                centralManager.Search(90, 125, 300, ProgressBar);
             }
             else
             {
@@ -130,6 +148,16 @@ namespace Lumi4
         private void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void IPComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var name = IPComboBox.SelectedItem.ToString();
+            if (name != "" && name != null)
+            {
+                var httpPeripheral = centralManager.GetDiscoveredPeripheralByName(name);
+                SelectedIp.Text = httpPeripheral.PeripheralInfo.IP.ToString();
+            }
         }
     }
 }

@@ -58,5 +58,11 @@ namespace Lumi4.LumiCommunication.DataHandling
             return "";
         }
 
+        public static string GetHttpStringFromStrings(string partOne, string partTwo, string partThree, string partFour)
+        {
+            string returnString = "";
+            returnString = ("http://" + partOne + "." + partTwo + "." + partThree + "." + partFour + "/");
+            return returnString;
+        }
     }
 }

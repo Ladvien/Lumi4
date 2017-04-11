@@ -21,11 +21,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             }
         }
 
-        public override PeripheralInfo GetDeviceInfo()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void Start()
         {
             throw new NotImplementedException();

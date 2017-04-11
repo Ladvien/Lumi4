@@ -88,7 +88,7 @@ namespace Lumi4.Tests
                     try
                     {
 
-                        WifiCentralManager wifiCentralManager = new WifiCentralManager(null);
+                        WebServerCentralManager wifiCentralManager = new WebServerCentralManager(null);
                     }
                     catch (Exception ex)
                     {
@@ -101,7 +101,7 @@ namespace Lumi4.Tests
                 public void WifiCentralManager_Constructor_WifiCentralManager()
                 {
                     var ip = new Uri("http://192.168.1.100/");
-                    WifiCentralManager wifiCentralManager = new WifiCentralManager(ip);
+                    WebServerCentralManager wifiCentralManager = new WebServerCentralManager(ip);
                     Assert.IsNotNull(wifiCentralManager);
                 }
             }

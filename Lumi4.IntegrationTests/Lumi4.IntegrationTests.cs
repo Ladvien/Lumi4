@@ -9,6 +9,7 @@ namespace Lumi4.IntegrationTests
     public class Lumi4IntegrationTestSettings
     {
         public static Uri LocalIP = new Uri("http://192.168.1.100/");
+        public static Uri esperTester = new Uri("http://192.168.1.");
         public static int SearchWifiCallbackDelay = 30000;
     }
 
@@ -22,7 +23,7 @@ namespace Lumi4.IntegrationTests
             public async Task Search_FindsWebServer_ValidIp()
             {
                 var localNetwork = Lumi4IntegrationTestSettings.LocalIP;
-                WifiCentralManager wifiCentralManager = new WifiCentralManager(localNetwork);
+                WebServerCentralManager wifiCentralManager = new WebServerCentralManager(localNetwork);
                 bool foundDevice = false;
                 wifiCentralManager.DiscoveredDevice += delegate (object obj, DiscoveredDeviceEventArgs args)
                 {
