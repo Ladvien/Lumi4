@@ -35,6 +35,9 @@ namespace Lumi4
         WebServerCentralManager centralManager = new WebServerCentralManager(serverUri);
         WebServerPeripheral Peripheral;
 
+        Windows.Storage.ApplicationDataContainer Lumi4AppSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        Windows.Storage.StorageFolder Lumi4AppFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -158,6 +161,11 @@ namespace Lumi4
                 var httpPeripheral = centralManager.GetDiscoveredPeripheralByName(name);
                 SelectedIp.Text = httpPeripheral.PeripheralInfo.IP.ToString();
             }
+        }
+
+        public void LoadSettings()
+        {
+            //Lumi4AppSettings.Values[]
         }
     }
 }
