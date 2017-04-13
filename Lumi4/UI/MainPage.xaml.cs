@@ -35,12 +35,18 @@ namespace Lumi4
         WebServerCentralManager centralManager = new WebServerCentralManager(serverUri);
         WebServerPeripheral Peripheral;
 
-        Windows.Storage.ApplicationDataContainer Lumi4AppSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-        Windows.Storage.StorageFolder Lumi4AppFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
 
         public MainPage()
         {
             this.InitializeComponent();
+
+            InitializeSettings();
+
+
+        }
+
+        public void InitializeSettings()
+        {
 
             // UI Hacking.
             // TODO: Reconsider below.
@@ -57,6 +63,12 @@ namespace Lumi4
 
             ProgressBar.Maximum = 100;
             ProgressBar.Value = 100;
+
+            var networkParts = Lumi4SettingsLibrary.LoadNetworkSettings();
+            NetworkIDOne.Text = networkParts[0];
+            NetworkIDTwo.Text = networkParts[1];
+            HostIDOne.Text = networkParts[2];
+            HostIDTwo.Text = networkParts[3];
         }
 
         private async void CentralManager_DeviceStateChange(object source, DeviceStateChangeEventArgs args)
@@ -73,9 +85,6 @@ namespace Lumi4
             IPComboBox.SelectedIndex++;
             await centralManager.Connect(httpPeripheral);
             //httpPeripheral.Start();
-            
-
-            args.DiscoveredPeripheral.AddStringToSendBuffer("Hey you!");
         }
 
         private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
@@ -116,6 +125,7 @@ namespace Lumi4
         private async void Search_Click(object sender, RoutedEventArgs e)
         {
 
+            Lumi4SettingsLibrary.SaveNetworkSettings(NetworkIDOne.Text, NetworkIDTwo.Text, HostIDOne.Text, HostIDTwo.Text);
             var approximateNetwork = DataConversion.GetHttpStringFromStrings(NetworkIDOne.Text,
                                                                              NetworkIDTwo.Text,
                                                                              HostIDOne.Text,
@@ -163,9 +173,6 @@ namespace Lumi4
             }
         }
 
-        public void LoadSettings()
-        {
-            //Lumi4AppSettings.Values[]
-        }
+
     }
 }

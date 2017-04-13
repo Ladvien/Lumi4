@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings\Lumi4SettingsLibrary.cs" />
     <Compile Include="LumiCommunication\CentralManager\BluetoothLECentralManager.cs" />
     <Compile Include="LumiCommunication\CentralManager\Central.cs" />
     <Compile Include="LumiCommunication\CentralManager\CentralBehavior.cs" />
