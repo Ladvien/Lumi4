@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="NetworkIDTwo" />
+    <RootPropertyPathName Name="NetworkIDOne" />
+    <RootPropertyPathName Name="HostIDTwo" />
+    <RootPropertyPathName Name="HostIDOne" />
     <RootPropertyPathName Name="Label" />
     <RootPropertyPathName Name="Glyph" />
   </Roots.PropertyPathNames>
@@ -97,6 +101,7 @@
       <RootProperty Name="MinWidth" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Text" />
       <RootProperty Name="TextAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
@@ -120,6 +125,9 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootEvent Name="SelectionChanged" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Mode" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBar">
       <RootProperty Name="IsOpen" />
@@ -149,7 +157,6 @@
       <RootProperty Name="Glyph" />
       <RootProperty Name="FontSize" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding" />
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
   </Roots.RootTypes>
 </Roots>

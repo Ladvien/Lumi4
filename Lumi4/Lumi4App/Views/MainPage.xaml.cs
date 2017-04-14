@@ -35,14 +35,25 @@ namespace Lumi4
         WebServerCentralManager centralManager = new WebServerCentralManager(serverUri);
         WebServerPeripheral Peripheral;
 
-
         public MainPage()
         {
             this.InitializeComponent();
-
             InitializeSettings();
+            DataContext = new Lumi4App.ViewModels.MainViewViewModel();
+            Windows.ApplicationModel.Core.CoreApplication.Suspending += CoreApplication_Suspending;
 
+        }
 
+        
+        private void CoreApplication_Suspending(object sender, Windows.ApplicationModel.SuspendingEventArgs e)
+        {
+            SaveSettings();
+        }
+     
+        public void SaveSettings()
+        {
+            var mainViewViewModel = DataContext as Lumi4App.ViewModels.MainViewViewModel;
+            mainViewViewModel.SaveSettings();
         }
 
         public void InitializeSettings()
@@ -64,11 +75,7 @@ namespace Lumi4
             ProgressBar.Maximum = 100;
             ProgressBar.Value = 100;
 
-            var networkParts = Lumi4SettingsLibrary.LoadNetworkSettings();
-            NetworkIDOne.Text = networkParts[0];
-            NetworkIDTwo.Text = networkParts[1];
-            HostIDOne.Text = networkParts[2];
-            HostIDTwo.Text = networkParts[3];
+
         }
 
         private async void CentralManager_DeviceStateChange(object source, DeviceStateChangeEventArgs args)
@@ -125,7 +132,7 @@ namespace Lumi4
         private async void Search_Click(object sender, RoutedEventArgs e)
         {
 
-            Lumi4SettingsLibrary.SaveNetworkSettings(NetworkIDOne.Text, NetworkIDTwo.Text, HostIDOne.Text, HostIDTwo.Text);
+
             var approximateNetwork = DataConversion.GetHttpStringFromStrings(NetworkIDOne.Text,
                                                                              NetworkIDTwo.Text,
                                                                              HostIDOne.Text,

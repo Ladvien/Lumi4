@@ -95,7 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Settings\Lumi4SettingsLibrary.cs" />
+    <Compile Include="Lumi4App\Settings\Lumi4SettingsLibrary.cs" />
+    <Compile Include="Lumi4App\ViewModels\MainViewViewModel.cs" />
+    <Compile Include="Lumi4App\ViewModels\MainViewModelBase.cs" />
     <Compile Include="LumiCommunication\CentralManager\BluetoothLECentralManager.cs" />
     <Compile Include="LumiCommunication\CentralManager\Central.cs" />
     <Compile Include="LumiCommunication\CentralManager\CentralBehavior.cs" />
@@ -110,11 +112,11 @@
     <Compile Include="LumiCommunication\PeripheralManager\PeripheralBehavior.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\PeripheralInfo.cs" />
     <Compile Include="LumiCommunication\DeviceState\DeviceState.cs" />
-    <Compile Include="UI\DialogButton.cs" />
-    <Compile Include="UI\MainPage.xaml.cs">
+    <Compile Include="Lumi4App\Views\DialogButton.cs" />
+    <Compile Include="Lumi4App\Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\TabHeader.xaml.cs">
+    <Compile Include="Lumi4App\Views\TabHeader.xaml.cs">
       <DependentUpon>TabHeader.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -182,11 +184,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="UI\MainPage.xaml">
+    <Page Include="Lumi4App\Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\TabHeader.xaml">
+    <Page Include="Lumi4App\Views\TabHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -195,6 +197,9 @@
     <SDKReference Include="WindowsDesktop, Version=10.0.14393.0">
       <Name>Windows Desktop Extensions for the UWP</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lumi4App\Models\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
