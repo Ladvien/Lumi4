@@ -132,19 +132,27 @@ namespace Lumi4.Lumi4_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
-            _typeNameTable[0] = "Lumi4.TabHeader";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[2] = "String";
-            _typeNameTable[3] = "Lumi4.MainPage";
-            _typeNameTable[4] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable = new string[9];
+            _typeNameTable[0] = "Prism.Windows.Mvvm.ViewModelLocator";
+            _typeNameTable[1] = "Object";
+            _typeNameTable[2] = "Boolean";
+            _typeNameTable[3] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[4] = "Lumi4.TabHeader";
+            _typeNameTable[5] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[6] = "String";
+            _typeNameTable[7] = "Lumi4.ViewMain";
+            _typeNameTable[8] = "Windows.UI.Xaml.Controls.Page";
 
-            _typeTable = new global::System.Type[5];
-            _typeTable[0] = typeof(global::Lumi4.TabHeader);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[2] = typeof(global::System.String);
-            _typeTable[3] = typeof(global::Lumi4.MainPage);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable = new global::System.Type[9];
+            _typeTable[0] = typeof(global::Prism.Windows.Mvvm.ViewModelLocator);
+            _typeTable[1] = typeof(global::System.Object);
+            _typeTable[2] = typeof(global::System.Boolean);
+            _typeTable[3] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[4] = typeof(global::Lumi4.TabHeader);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[6] = typeof(global::System.String);
+            _typeTable[7] = typeof(global::Lumi4.ViewMain);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.Page);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -179,8 +187,9 @@ namespace Lumi4.Lumi4_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_TabHeader() { return new global::Lumi4.TabHeader(); }
-        private object Activate_3_MainPage() { return new global::Lumi4.MainPage(); }
+        private object Activate_0_ViewModelLocator() { return new global::Prism.Windows.Mvvm.ViewModelLocator(); }
+        private object Activate_4_TabHeader() { return new global::Lumi4.TabHeader(); }
+        private object Activate_7_ViewMain() { return new global::Lumi4.ViewMain(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -192,31 +201,50 @@ namespace Lumi4.Lumi4_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  Lumi4.TabHeader
+            case 0:   //  Prism.Windows.Mvvm.ViewModelLocator
+                userType = new global::Lumi4.Lumi4_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_0_ViewModelLocator;
+                userType.AddMemberName("AutoWireViewModel");
+                xamlType = userType;
+                break;
+
+            case 1:   //  Object
+                xamlType = new global::Lumi4.Lumi4_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 2:   //  Boolean
+                xamlType = new global::Lumi4.Lumi4_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  Windows.UI.Xaml.DependencyObject
+                xamlType = new global::Lumi4.Lumi4_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 4:   //  Lumi4.TabHeader
                 userType = new global::Lumi4.Lumi4_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_0_TabHeader;
+                userType.Activator = Activate_4_TabHeader;
                 userType.AddMemberName("Label");
                 userType.AddMemberName("Glyph");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.UserControl
+            case 5:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::Lumi4.Lumi4_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  String
+            case 6:   //  String
                 xamlType = new global::Lumi4.Lumi4_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Lumi4.MainPage
+            case 7:   //  Lumi4.ViewMain
                 userType = new global::Lumi4.Lumi4_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_MainPage;
+                userType.Activator = Activate_7_ViewMain;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Windows.UI.Xaml.Controls.Page
+            case 8:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::Lumi4.Lumi4_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -224,22 +252,30 @@ namespace Lumi4.Lumi4_XamlTypeInfo
         }
 
 
-        private object get_0_TabHeader_Label(object instance)
+        private object get_0_ViewModelLocator_AutoWireViewModel(object instance)
+        {
+            return global::Prism.Windows.Mvvm.ViewModelLocator.GetAutoWireViewModel((global::Windows.UI.Xaml.DependencyObject)instance);
+        }
+        private void set_0_ViewModelLocator_AutoWireViewModel(object instance, object Value)
+        {
+            global::Prism.Windows.Mvvm.ViewModelLocator.SetAutoWireViewModel((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.Boolean)Value);
+        }
+        private object get_1_TabHeader_Label(object instance)
         {
             var that = (global::Lumi4.TabHeader)instance;
             return that.Label;
         }
-        private void set_0_TabHeader_Label(object instance, object Value)
+        private void set_1_TabHeader_Label(object instance, object Value)
         {
             var that = (global::Lumi4.TabHeader)instance;
             that.Label = (global::System.String)Value;
         }
-        private object get_1_TabHeader_Glyph(object instance)
+        private object get_2_TabHeader_Glyph(object instance)
         {
             var that = (global::Lumi4.TabHeader)instance;
             return that.Glyph;
         }
-        private void set_1_TabHeader_Glyph(object instance, object Value)
+        private void set_2_TabHeader_Glyph(object instance, object Value)
         {
             var that = (global::Lumi4.TabHeader)instance;
             that.Glyph = (global::System.String)Value;
@@ -252,19 +288,27 @@ namespace Lumi4.Lumi4_XamlTypeInfo
 
             switch (longMemberName)
             {
+            case "Prism.Windows.Mvvm.ViewModelLocator.AutoWireViewModel":
+                userType = (global::Lumi4.Lumi4_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Prism.Windows.Mvvm.ViewModelLocator");
+                xamlMember = new global::Lumi4.Lumi4_XamlTypeInfo.XamlMember(this, "AutoWireViewModel", "Boolean");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_0_ViewModelLocator_AutoWireViewModel;
+                xamlMember.Setter = set_0_ViewModelLocator_AutoWireViewModel;
+                break;
             case "Lumi4.TabHeader.Label":
                 userType = (global::Lumi4.Lumi4_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Lumi4.TabHeader");
                 xamlMember = new global::Lumi4.Lumi4_XamlTypeInfo.XamlMember(this, "Label", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_0_TabHeader_Label;
-                xamlMember.Setter = set_0_TabHeader_Label;
+                xamlMember.Getter = get_1_TabHeader_Label;
+                xamlMember.Setter = set_1_TabHeader_Label;
                 break;
             case "Lumi4.TabHeader.Glyph":
                 userType = (global::Lumi4.Lumi4_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Lumi4.TabHeader");
                 xamlMember = new global::Lumi4.Lumi4_XamlTypeInfo.XamlMember(this, "Glyph", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_1_TabHeader_Glyph;
-                xamlMember.Setter = set_1_TabHeader_Glyph;
+                xamlMember.Getter = get_2_TabHeader_Glyph;
+                xamlMember.Setter = set_2_TabHeader_Glyph;
                 break;
             }
             return xamlMember;

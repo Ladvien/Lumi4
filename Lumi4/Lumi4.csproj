@@ -96,7 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lumi4App\Settings\Lumi4SettingsLibrary.cs" />
-    <Compile Include="Lumi4App\ViewModels\MainViewViewModel.cs" />
+    <Compile Include="Lumi4App\ViewModels\ViewMainViewModel.cs" />
     <Compile Include="Lumi4App\ViewModels\MainViewModelBase.cs" />
     <Compile Include="LumiCommunication\CentralManager\BluetoothLECentralManager.cs" />
     <Compile Include="LumiCommunication\CentralManager\Central.cs" />
@@ -113,8 +113,8 @@
     <Compile Include="LumiCommunication\PeripheralManager\PeripheralInfo.cs" />
     <Compile Include="LumiCommunication\DeviceState\DeviceState.cs" />
     <Compile Include="Lumi4App\Views\DialogButton.cs" />
-    <Compile Include="Lumi4App\Views\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Lumi4App\Views\ViewMain.xaml.cs">
+      <DependentUpon>ViewMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lumi4App\Views\TabHeader.xaml.cs">
       <DependentUpon>TabHeader.xaml</DependentUpon>
@@ -184,7 +184,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Lumi4App\Views\MainPage.xaml">
+    <Page Include="Lumi4App\Views\ViewMain.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

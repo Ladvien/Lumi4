@@ -1,3 +1,0 @@
-AlternateForm=UNPLATED
-TargetSize=24
-Language=EN-US

@@ -2,6 +2,15 @@
   "version": 2,
   "targets": {
     "UAP,Version=v10.0": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -286,6 +295,29 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
+        }
+      },
+      "Prism.Windows/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Prism.Core": "6.3.0"
+        },
+        "compile": {
+          "lib/uap10.0/Prism.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Prism.Windows.dll": {}
         }
       },
       "runtime.native.System.IO.Compression/4.1.0": {
@@ -2173,11 +2205,22 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Prism.Core": "6.3.0",
+          "Prism.Windows": "6.3.0"
         }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -2410,6 +2453,29 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
+        }
+      },
+      "Prism.Windows/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Prism.Core": "6.3.0"
+        },
+        "compile": {
+          "lib/uap10.0/Prism.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Prism.Windows.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -4432,11 +4498,22 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Prism.Core": "6.3.0",
+          "Prism.Windows": "6.3.0"
         }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -4670,6 +4747,29 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
+        }
+      },
+      "Prism.Windows/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Prism.Core": "6.3.0"
+        },
+        "compile": {
+          "lib/uap10.0/Prism.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Prism.Windows.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -6730,11 +6830,22 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Prism.Core": "6.3.0",
+          "Prism.Windows": "6.3.0"
         }
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -6970,6 +7081,29 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
+        }
+      },
+      "Prism.Windows/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Prism.Core": "6.3.0"
+        },
+        "compile": {
+          "lib/uap10.0/Prism.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Prism.Windows.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -8998,11 +9132,22 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Prism.Core": "6.3.0",
+          "Prism.Windows": "6.3.0"
         }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -9239,6 +9384,29 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
+        }
+      },
+      "Prism.Windows/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Prism.Core": "6.3.0"
+        },
+        "compile": {
+          "lib/uap10.0/Prism.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Prism.Windows.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -11305,11 +11473,22 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Prism.Core": "6.3.0",
+          "Prism.Windows": "6.3.0"
         }
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -11545,6 +11724,29 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
+        }
+      },
+      "Prism.Windows/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Prism.Core": "6.3.0"
+        },
+        "compile": {
+          "lib/uap10.0/Prism.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Prism.Windows.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -13573,11 +13775,22 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Prism.Core": "6.3.0",
+          "Prism.Windows": "6.3.0"
         }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "CommonServiceLocator/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -13814,6 +14027,29 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
+        }
+      },
+      "Prism.Windows/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "Prism.Core": "6.3.0"
+        },
+        "compile": {
+          "lib/uap10.0/Prism.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Prism.Windows.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -15880,12 +16116,26 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Prism.Core": "6.3.0",
+          "Prism.Windows": "6.3.0"
         }
       }
     }
   },
   "libraries": {
+    "CommonServiceLocator/1.3.0": {
+      "sha512": "fbjO0SNwbOFPdwVfyqv+B7gIJ2CVBOFPKqn1mDDECK7KER8jFaOdcvroFYoAHa0ktPbxi5s+15qOLnA96f8GSA==",
+      "type": "package",
+      "path": "commonservicelocator/1.3.0",
+      "files": [
+        "commonservicelocator.1.3.0.nupkg.sha512",
+        "commonservicelocator.nuspec",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.pdb"
+      ]
+    },
     "Microsoft.CSharp/4.0.1": {
       "sha512": "17h8b5mXa87XYKrrVqdgZ38JefSUqLChUQpXgSnpzsM0nDOhE40FTeNWOJ/YmySGV6tG6T8+hjz6vxbknHJr6A==",
       "type": "package",
@@ -16186,6 +16436,43 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "Prism.Core/6.3.0": {
+      "sha512": "8KKRF/1Hx76dXFrYb3XUbkGFWTZjjI99DTGcPt5/aGghb3iYBscxiT4WDVlGmUpfqw7QS/jDI2BGs5ZsAy8XVA==",
+      "type": "package",
+      "path": "prism.core/6.3.0",
+      "files": [
+        "lib/MonoAndroid10/Prism.dll",
+        "lib/MonoAndroid10/Prism.xml",
+        "lib/MonoTouch10/Prism.dll",
+        "lib/MonoTouch10/Prism.xml",
+        "lib/Xamarin.iOS10/Prism.dll",
+        "lib/Xamarin.iOS10/Prism.xml",
+        "lib/net45/Prism.dll",
+        "lib/net45/Prism.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.xml",
+        "lib/wp8/Prism.dll",
+        "lib/wp8/Prism.xml",
+        "lib/wp81/Prism.dll",
+        "lib/wp81/Prism.xml",
+        "lib/wpa81/Prism.dll",
+        "lib/wpa81/Prism.xml",
+        "prism.core.6.3.0.nupkg.sha512",
+        "prism.core.nuspec"
+      ]
+    },
+    "Prism.Windows/6.3.0": {
+      "sha512": "ZAatzG6pCg8jIqKimSZ+xuRTXU7PhR5OjWY8yb5sM9zMF9HjIsVwubvb8hw7qsf8Jb9tnd/JjLgyV4IDB+m+YQ==",
+      "type": "package",
+      "path": "prism.windows/6.3.0",
+      "files": [
+        "lib/uap10.0/Prism.Windows.dll",
+        "lib/uap10.0/Prism.Windows.pri",
+        "lib/uap10.0/Prism.Windows.xml",
+        "prism.windows.6.3.0.nupkg.sha512",
+        "prism.windows.nuspec"
       ]
     },
     "runtime.any.System.Collections/4.0.11": {
@@ -22060,7 +22347,8 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.3"
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.3",
+      "Prism.Windows >= 6.3.0"
     ],
     "UAP,Version=v10.0": []
   },
@@ -22085,7 +22373,8 @@
       }
     },
     "dependencies": {
-      "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+      "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+      "Prism.Windows": "6.3.0"
     },
     "frameworks": {
       "uap10.0": {}

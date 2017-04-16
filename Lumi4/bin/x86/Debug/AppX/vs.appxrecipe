@@ -31,13 +31,17 @@
     <AppXManifest Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-14T21:13:56.081</Modified>
+      <Modified>2017-04-16T13:16:28.278</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Lumi4.exe">
       <PackagePath>entrypoint\Lumi4.exe</PackagePath>
-      <Modified>2017-04-14T21:13:55.740</Modified>
+      <Modified>2017-04-16T13:16:27.623</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\CommonServiceLocator\1.3.0\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll">
+      <PackagePath>Microsoft.Practices.ServiceLocation.dll</PackagePath>
+      <Modified>2014-05-05T16:25:44.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -94,6 +98,14 @@
     <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\Microsoft.VisualBasic\10.0.1\lib\netcore50\Microsoft.VisualBasic.dll">
       <PackagePath>Microsoft.VisualBasic.dll</PackagePath>
       <Modified>2016-06-12T04:13:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\Prism.Core\6.3.0\lib\wpa81\Prism.dll">
+      <PackagePath>Prism.dll</PackagePath>
+      <Modified>2017-03-24T23:34:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\Prism.Windows\6.3.0\lib\uap10.0\Prism.Windows.dll">
+      <PackagePath>Prism.Windows.dll</PackagePath>
+      <Modified>2017-03-24T23:34:02.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\runtime.any.System.Collections\4.0.11\lib\netcore50\System.Collections.dll">
       <PackagePath>System.Collections.dll</PackagePath>
@@ -726,7 +738,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Lumi4.xr.xml">
       <PackagePath>Lumi4.xr.xml</PackagePath>
-      <Modified>2017-04-14T19:33:47.232</Modified>
+      <Modified>2017-04-16T13:10:41.402</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -735,11 +747,11 @@
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-14T20:04:10.962</Modified>
+      <Modified>2017-04-16T13:16:28.060</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Core\Lumi4.exe">
       <PackagePath>Lumi4.exe</PackagePath>
-      <Modified>2017-04-14T21:13:56.076</Modified>
+      <Modified>2017-04-16T13:16:28.275</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
