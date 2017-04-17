@@ -9,12 +9,16 @@ using Windows.UI.Xaml;
 using System.Windows.Input;
 using Prism.Commands;
 using Prism.Mvvm;
+using Lumi4.Lumi4App.Models;
+using Windows.ApplicationModel;
 
 namespace Lumi4.Lumi4App.ViewModels
 {
-    public class ViewMainViewModel: BindableBase
+    public class MainPageViewModel: BindableBase
     {
         #region properties
+        private Lumi4Model Lumi4Model;
+
         public enum CentralDeviceType
         {
             Http,
@@ -82,8 +86,13 @@ namespace Lumi4.Lumi4App.ViewModels
         }
         #endregion
 
-        public ViewMainViewModel()
+        public MainPageViewModel(Lumi4Model lumi4Model)
         {
+
+            Windows.ApplicationModel.Core.CoreApplication.Suspending += CoreApplication_Suspending;
+
+            Lumi4Model = lumi4Model;
+
             SearchCommand = new DelegateCommand(SearchExecute, SearchCanExecute).
                 ObservesProperty(() => this.DeviceTypePivotIndex).
                 ObservesProperty(() => this.HostIDOne).
@@ -93,11 +102,16 @@ namespace Lumi4.Lumi4App.ViewModels
             LoadSettings();
         }
 
+        private void CoreApplication_Suspending(object sender, SuspendingEventArgs e)
+        {
+            SaveSettings();
+        }
+
         #region methods
 
         private bool CheckForValidApproximateNetWorkEntered()
         {
-            return HostIDOne != "" && HostIDTwo != "" && NetworkIDOne != "" ? true : false;
+            return !String.IsNullOrWhiteSpace(HostIDOne) && !String.IsNullOrWhiteSpace(HostIDTwo) && !String.IsNullOrWhiteSpace(NetworkIDOne) ? true : false;
         }
 
         public void LoadSettings()
@@ -122,6 +136,8 @@ namespace Lumi4.Lumi4App.ViewModels
 
             }
         }
+
+
         #endregion
     }
 }

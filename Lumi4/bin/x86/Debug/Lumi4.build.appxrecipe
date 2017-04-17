@@ -76,6 +76,9 @@
     <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\Prism.Core\6.3.0\lib\wpa81\Prism.dll">
       <PackagePath>Prism.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\Prism.Unity\6.3.0\lib\uap10.0\Prism.Unity.Windows.dll">
+      <PackagePath>Prism.Unity.Windows.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\Prism.Windows\6.3.0\lib\uap10.0\Prism.Windows.dll">
       <PackagePath>Prism.Windows.dll</PackagePath>
     </AppxPackagedFile>
@@ -378,6 +381,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\System.Xml.XmlSerializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\Unity\4.0.1\lib\win8\Microsoft.Practices.Unity.RegistrationByConvention.dll">
+      <PackagePath>Microsoft.Practices.Unity.RegistrationByConvention.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\Unity\4.0.1\lib\win8\Microsoft.Practices.Unity.dll">
+      <PackagePath>Microsoft.Practices.Unity.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\Assets\BadgeLogo.scale-100.png">
       <PackagePath>Assets\BadgeLogo.scale-100.png</PackagePath>

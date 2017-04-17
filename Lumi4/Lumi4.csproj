@@ -95,9 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lumi4App\Models\Lumi4Model.cs" />
     <Compile Include="Lumi4App\Settings\Lumi4SettingsLibrary.cs" />
-    <Compile Include="Lumi4App\ViewModels\ViewMainViewModel.cs" />
-    <Compile Include="Lumi4App\ViewModels\MainViewModelBase.cs" />
+    <Compile Include="Lumi4App\ViewModels\MainPageViewModel.cs" />
     <Compile Include="LumiCommunication\CentralManager\BluetoothLECentralManager.cs" />
     <Compile Include="LumiCommunication\CentralManager\Central.cs" />
     <Compile Include="LumiCommunication\CentralManager\CentralBehavior.cs" />
@@ -113,8 +113,8 @@
     <Compile Include="LumiCommunication\PeripheralManager\PeripheralInfo.cs" />
     <Compile Include="LumiCommunication\DeviceState\DeviceState.cs" />
     <Compile Include="Lumi4App\Views\DialogButton.cs" />
-    <Compile Include="Lumi4App\Views\ViewMain.xaml.cs">
-      <DependentUpon>ViewMain.xaml</DependentUpon>
+    <Compile Include="Lumi4App\Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lumi4App\Views\TabHeader.xaml.cs">
       <DependentUpon>TabHeader.xaml</DependentUpon>
@@ -184,7 +184,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Lumi4App\Views\ViewMain.xaml">
+    <Page Include="Lumi4App\Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -198,9 +198,7 @@
       <Name>Windows Desktop Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Lumi4App\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
