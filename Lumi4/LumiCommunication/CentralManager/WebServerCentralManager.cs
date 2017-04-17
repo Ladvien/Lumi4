@@ -34,9 +34,18 @@ namespace Lumi4.LumiCommunication.CentralManager
 
         #endregion
 
-        public WebServerCentralManager(Uri ip)
+        public WebServerCentralManager(string ip = "http://192.168.1.1/")
         {
-            SetApproximateNetwork(ip);
+            
+            try
+            {
+                Uri IP = new Uri(ip);
+                SetApproximateNetwork(IP);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception in WebServerCentralManager: " + ex.Message);
+            }
         }
 
         public void SetApproximateNetwork(Uri ip)
@@ -98,15 +107,15 @@ namespace Lumi4.LumiCommunication.CentralManager
                                 OnDiscoveringDevice(peripheral);
                             } catch (Exception ex)
                             {
-
+                                Debug.WriteLine("Exception in WifiCentralManager.Search: " + ex.Message);
                             }
-
                         }
                     }
                     response.Dispose();
                 }
                 catch (Exception ex)
                 {
+                    OnDiscoveringDevice(null);
                     Debug.WriteLine("Exception in WifiCentralManager.Search: " + ex.Message);
                 }
                 if(progressBar != null) { progressBar.Value += 1; }   

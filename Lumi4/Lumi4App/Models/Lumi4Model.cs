@@ -16,36 +16,27 @@ namespace Lumi4.Lumi4App.Models
 {
     public class Lumi4Model
     {
-        private WebServerCentralManager centralManager;
+        private WebServerCentralManager WebServerCentralManager;
         private ProgressBar progressBar = new ProgressBar();
 
-        public Lumi4Model()
+        public Lumi4Model(WebServerCentralManager _webServerCentralManager)
         {
+            WebServerCentralManager = _webServerCentralManager; 
             InitializeSettings();
         }
 
         public void InitializeSettings()
         {
-
             byte[] testPacket = { 0x48, 0x45, 0x59, 0x20, 0x59, 0x4F, 0x55 };
-
-            string serverUrl = "http://192.168.1.103/";
-            Uri serverUri = new Uri(serverUrl);
-            centralManager = new WebServerCentralManager(serverUri);
-
-            centralManager.DeviceStateChange += CentralManager_DeviceStateChange;
-            centralManager.DiscoveredDevice += CentralManager_DiscoveredDevice;
-            centralManager.Start();
-
+            WebServerCentralManager.DeviceStateChange += CentralManager_DeviceStateChange;
+            WebServerCentralManager.DiscoveredDevice += CentralManager_DiscoveredDevice;
+            WebServerCentralManager.Start();
             progressBar.Maximum = 100;
             progressBar.Value = 100;
-
-
         }
 
         private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
         {
-
             var str = DataConversion.ByteArrayToAsciiString(args.ReceivedData);
             Debug.WriteLine(str);
         }
@@ -68,27 +59,27 @@ namespace Lumi4.Lumi4App.Models
 
         private async void CentralManager_DiscoveredDevice(object source, DiscoveredDeviceEventArgs args)
         {
-            var httpPeripheral = args.DiscoveredPeripheral as WebServerPeripheral;
-            var discoveredDeviceName = httpPeripheral.PeripheralInfo.Name;
+            if(args.DiscoveredPeripheral != null)
+            {
+                var httpPeripheral = args.DiscoveredPeripheral as WebServerPeripheral;
+                var discoveredDeviceName = httpPeripheral.PeripheralInfo.Name;
 
-            //IPComboBox.Items.Add(discoveredDeviceName);
-            //IPComboBox.SelectedIndex++;
-            await centralManager.Connect(httpPeripheral);
-            //httpPeripheral.Start();
+                //IPComboBox.Items.Add(discoveredDeviceName);
+                //IPComboBox.SelectedIndex++;
+                await WebServerCentralManager.Connect(httpPeripheral);
+                //httpPeripheral.Start();
+            }
         }
 
-        private async void Search(string HostIDOne, string HostIDTwo, string NetworkIDOne, string NetworkIDTwo)
+        public async void Search(string HostIDOne, string HostIDTwo, string NetworkIDOne, string NetworkIDTwo, int timeout, int start, int end)
         { 
-            var approximateNetwork = DataConversion.GetHttpStringFromStrings(NetworkIDOne,
-                                                                             NetworkIDTwo,
-                                                                             HostIDOne,
-                                                                            HostIDTwo);
+            var approximateNetwork = DataConversion.GetHttpStringFromStrings(HostIDOne, HostIDTwo, NetworkIDOne, NetworkIDTwo);
             try
             {
                 Uri approximateNetworkUri = new Uri(approximateNetwork);
                 if (approximateNetwork != null)
                 {
-                    centralManager.SetApproximateNetwork(approximateNetworkUri);
+                    WebServerCentralManager.SetApproximateNetwork(approximateNetworkUri);
                 }
             }
             catch (Exception ex)
@@ -96,10 +87,10 @@ namespace Lumi4.Lumi4App.Models
                 Debug.WriteLine(ex.Message);
             }
 
-            var deviceState = centralManager.GetDeviceState();
+            var deviceState = WebServerCentralManager.GetDeviceState();
             if (deviceState.State == DeviceState.States.On)
             {
-                centralManager.Search(90, 125, 300, progressBar);
+                WebServerCentralManager.Search(start, end, timeout);
             }
             else
             {

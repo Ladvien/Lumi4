@@ -18,14 +18,13 @@ namespace Lumi4
     public sealed partial class MainPage : Page
     {
         const string serverUrl = "http://192.168.1.103/";
-        static Uri serverUri = new Uri(serverUrl);
-        WebServerCentralManager centralManager = new WebServerCentralManager(serverUri);
+        WebServerCentralManager centralManager = new WebServerCentralManager(serverUrl);
         WebServerPeripheral Peripheral;
 
         public MainPage()
         {
             this.InitializeComponent();
-            DataContext = new Lumi4App.ViewModels.MainPageViewModel(new Lumi4App.Models.Lumi4Model());
+            DataContext = new Lumi4App.ViewModels.MainPageViewModel();
             
         }
 

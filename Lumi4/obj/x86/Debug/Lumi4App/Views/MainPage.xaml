@@ -11,7 +11,7 @@
 
     <StackPanel>
         <TextBlock HorizontalAlignment="Center" FontSize="44">Lumi2</TextBlock>
-        <ProgressBar x:ConnectionId='1' x:Name="ProgressBar" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="AntiqueWhite"/>
+        <ProgressBar x:ConnectionId='1' x:Name="ProgressBar" Maximum="{Binding ProgressBarMaximum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="{Binding ProgressBarValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="AntiqueWhite"/>
         <Pivot >
             <Pivot.Items>
                 <PivotItem>

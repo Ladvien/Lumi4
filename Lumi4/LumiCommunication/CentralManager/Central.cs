@@ -1,5 +1,4 @@
 ﻿using Lumi4.DeviceState;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,16 +62,6 @@ namespace Lumi4.LumiCommunication.CentralManager
 
         abstract public Task<bool> Disconnect(Peripheral peripheral);
         #endregion methods
-    }
-
-    public class DeviceStateChangeEventArgs: EventArgs
-    {
-        public DeviceState.DeviceState DeviceState { get; set; }
-    }
-
-    public class DiscoveredDeviceEventArgs: EventArgs
-    {
-        public Peripheral DiscoveredPeripheral { get; set; }
     }
 
     

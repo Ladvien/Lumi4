@@ -11,6 +11,9 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Lumi4.Lumi4App.Models;
 using Windows.ApplicationModel;
+using Lumi4.LumiCommunication.CentralManager;
+using System.Collections.ObjectModel;
+using Lumi4.LumiCommunication.PeripheralManager;
 
 namespace Lumi4.Lumi4App.ViewModels
 {
@@ -18,6 +21,7 @@ namespace Lumi4.Lumi4App.ViewModels
     {
         #region properties
         private Lumi4Model Lumi4Model;
+        private WebServerCentralManager webServerCentralManager;
 
         public enum CentralDeviceType
         {
@@ -26,6 +30,13 @@ namespace Lumi4.Lumi4App.ViewModels
             Serial
         }
         public CentralDeviceType CentralDeviceTypeSelected { get; set; }
+
+        private ObservableCollection<Peripheral> _DiscoveredPeripherals;
+        public string DiscoveredPeripherals
+        {
+            get { return _DiscoveredPeripherals; }
+            set { SetProperty(ref _DiscoveredPeripherals, value); }
+        }
 
         private int _DeviceTypePivotIndex;
         public int DeviceTypePivotIndex
@@ -70,6 +81,26 @@ namespace Lumi4.Lumi4App.ViewModels
             get { return _NetworkIDTwo; }
             set { SetProperty(ref _NetworkIDTwo, value); }
         }
+
+        private int _ProgressBarValue;
+        public int ProgressBarValue
+        {
+            get { return _ProgressBarValue; }
+            set { SetProperty(ref _ProgressBarValue, value);
+                if (value == ProgressBarMaximum)
+                {
+                    ProgressBarValue = 0;
+                    ProgressBarMaximum = 0;
+                }; 
+            }
+        }
+
+        private int _ProgressBarMaximum;
+        public int ProgressBarMaximum
+        {
+            get { return _ProgressBarMaximum; }
+            set { SetProperty(ref _ProgressBarMaximum, value); }
+        }
         #endregion
 
         #region commands
@@ -82,16 +113,21 @@ namespace Lumi4.Lumi4App.ViewModels
         }
         private void SearchExecute()
         {
-
+            int start = 90;
+            int end = 125;
+            int timeout = 300;
+            ProgressBarMaximum = end - start;
+            Lumi4Model.Search(HostIDOne, HostIDTwo, NetworkIDOne, NetworkIDTwo, timeout, start, end);
         }
         #endregion
 
-        public MainPageViewModel(Lumi4Model lumi4Model)
+        public MainPageViewModel()
         {
+            webServerCentralManager = new WebServerCentralManager();
+            webServerCentralManager.DiscoveredDevice += WebServerCentralManager_DiscoveredDevice; 
+            Lumi4Model = new Lumi4Model(webServerCentralManager);
 
             Windows.ApplicationModel.Core.CoreApplication.Suspending += CoreApplication_Suspending;
-
-            Lumi4Model = lumi4Model;
 
             SearchCommand = new DelegateCommand(SearchExecute, SearchCanExecute).
                 ObservesProperty(() => this.DeviceTypePivotIndex).
@@ -100,6 +136,11 @@ namespace Lumi4.Lumi4App.ViewModels
                 ObservesProperty(() => this.NetworkIDOne);
 
             LoadSettings();
+        }
+
+        private void WebServerCentralManager_DiscoveredDevice(object source, DiscoveredDeviceEventArgs args)
+        {
+            ProgressBarValue++;
         }
 
         private void CoreApplication_Suspending(object sender, SuspendingEventArgs e)

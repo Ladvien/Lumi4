@@ -102,6 +102,8 @@
     <Compile Include="LumiCommunication\CentralManager\Central.cs" />
     <Compile Include="LumiCommunication\CentralManager\CentralBehavior.cs" />
     <Compile Include="LumiCommunication\CentralManager\CentralInfo.cs" />
+    <Compile Include="LumiCommunication\CentralManager\DeviceStateChangeEventArgs.cs" />
+    <Compile Include="LumiCommunication\CentralManager\DiscoveredDeviceEventArgs.cs" />
     <Compile Include="LumiCommunication\CentralManager\WebServerCentralManager.cs" />
     <Compile Include="LumiCommunication\DataHandling\DataConversion.cs" />
     <Compile Include="LumiCommunication\PeripheralManager\BluetoothPeripheral.cs" />

@@ -7,6 +7,8 @@
     <RootPropertyPathName Name="NetworkIDOne" />
     <RootPropertyPathName Name="HostIDTwo" />
     <RootPropertyPathName Name="HostIDOne" />
+    <RootPropertyPathName Name="ProgressBarMaximum" />
+    <RootPropertyPathName Name="ProgressBarValue" />
     <RootPropertyPathName Name="Label" />
     <RootPropertyPathName Name="Glyph" />
   </Roots.PropertyPathNames>
@@ -47,6 +49,8 @@
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ProgressBar">
+      <RootProperty Name="Maximum" />
+      <RootProperty Name="Value" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Foreground" />
