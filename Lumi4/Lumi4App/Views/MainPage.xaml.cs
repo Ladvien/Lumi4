@@ -17,39 +17,11 @@ namespace Lumi4
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        const string serverUrl = "http://192.168.1.103/";
-        WebServerCentralManager centralManager = new WebServerCentralManager(serverUrl);
-        WebServerPeripheral Peripheral;
-
         public MainPage()
         {
             this.InitializeComponent();
             DataContext = new Lumi4App.ViewModels.MainPageViewModel();
-            
         }
-
-        private void Send_Button_Click(object sender, RoutedEventArgs e)
-        {
-            if(Peripheral != null)
-            {
-                Peripheral.AddDataToSendBuffer(DataConversion.StringToListByteArray(SendTextBox.Text).ToArray());
-                SendTextBox.Text = "";
-            } else
-            {
-                // TODO: Add "Not Connected" to system message.
-            }
-        }
-
-        private void IPComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var name = IPComboBox.SelectedItem.ToString();
-            if (name != "" && name != null)
-            {
-                var httpPeripheral = centralManager.GetDiscoveredPeripheralByName(name);
-                SelectedIp.Text = httpPeripheral.PeripheralInfo.IP.ToString();
-            }
-        }
-
 
     }
 }

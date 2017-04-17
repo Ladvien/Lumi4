@@ -45,7 +45,7 @@
                                                 <StackPanel>
                                                     <TextBlock Text="Discovered:" Padding="2"/>
                                                     <StackPanel VerticalAlignment="Top" >
-                                                    <ComboBox x:Name="IPComboBox" HorizontalAlignment="Stretch" ItemsSource="{Binding DiscoveredPeripherals, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  SelectedIndex="{Binding DiscoveredPeripheralIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" SelectionChanged="IPComboBox_SelectionChanged"/>
+                                                    <ComboBox x:Name="IPComboBox" HorizontalAlignment="Stretch" ItemsSource="{Binding DiscoveredPeripherals, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  SelectedIndex="{Binding DiscoveredPeripheralIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch"/>
                                                             <StackPanel Orientation="Horizontal" Padding="4">
                                                                 <TextBlock Text="Device IP: " VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
                                                             <TextBlock IsTextSelectionEnabled="True" Padding="4" x:Name="SelectedIp" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Text=""/>
@@ -60,7 +60,7 @@
                                                         <TextBlock Text="Search"/>
                                                     </StackPanel>
                                                 </Button>
-                                                <Button Padding="2">
+                                                <Button Padding="2" Command="{Binding ConnectCommand, Mode=TwoWay}">
                                                     <StackPanel>
                                                         <TextBlock Text="&#59163;" VerticalAlignment="Stretch" HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets" AutomationProperties.Name="Favorite" />
                                                         <TextBlock Text="Connect"/>
@@ -133,7 +133,7 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="5*"/>
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Row="0"  Content="Send" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                <Button Grid.Row="0"  Content="Send" Command="{Binding SendCommand, Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                 <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto">
                                     <TextBox x:Name="SendTextBox" Padding="12" MinWidth="360" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></TextBox>
                                 </ScrollViewer>

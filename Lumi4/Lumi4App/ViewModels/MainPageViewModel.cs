@@ -15,6 +15,7 @@ namespace Lumi4.Lumi4App.ViewModels
     {
         #region properties
         private WebServerCentralManager WebServerCentralManager;
+        private Peripheral ConnectedWebServerPeripheral;
 
         public enum CentralDeviceType
         {
@@ -119,6 +120,36 @@ namespace Lumi4.Lumi4App.ViewModels
             ProgressBarMaximum = end - start;
             Search(HostIDOne, HostIDTwo, NetworkIDOne, NetworkIDTwo, timeout, start, end);
         }
+
+        public DelegateCommand ConnectCommand { get; set; }
+        private bool ConnectCanExecute()
+        {
+            return (DiscoveredPeripherals.Count > 0) ? true : false;
+        } 
+        private void ConnectExecute()
+        {
+            ConnectedWebServerPeripheral = DiscoveredPeripherals[DiscoveredPeripheralIndex];
+            ConnectedWebServerPeripheral.ReceivedData += ConnectedWebServerPeripheral_ReceivedData;
+            ConnectedWebServerPeripheral.Start();
+        }
+
+        private void ConnectedWebServerPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DelegateCommand SendCommand { get; set; }
+        private bool SendCanExecute()
+        {
+            return true;
+        }
+        private async void SendExecute()
+        {
+            var d = ConnectedWebServerPeripheral as WebServerPeripheral;
+            await d.SendData("Hey you!");
+            await d.GetData();
+        }
+
         #endregion
 
         public MainPageViewModel()
@@ -129,6 +160,7 @@ namespace Lumi4.Lumi4App.ViewModels
             WebServerCentralManager.Start();
 
             Windows.ApplicationModel.Core.CoreApplication.Suspending += CoreApplication_Suspending;
+            LoadSettings();
 
             SearchCommand = new DelegateCommand(SearchExecute, SearchCanExecute).
                 ObservesProperty(() => this.DeviceTypePivotIndex).
@@ -136,8 +168,10 @@ namespace Lumi4.Lumi4App.ViewModels
                 ObservesProperty(() => this.HostIDTwo).
                 ObservesProperty(() => this.NetworkIDOne);
 
-            LoadSettings();
-            InitializeSettings();
+            ConnectCommand = new DelegateCommand(ConnectExecute, ConnectCanExecute).ObservesProperty(() => this.DiscoveredPeripheralIndex);
+
+            SendCommand = new DelegateCommand(SendExecute, SendCanExecute);
+
         }
 
         private void WebServerCentralManager_DiscoveredDevice(object source, DiscoveredDeviceEventArgs args)
@@ -156,9 +190,6 @@ namespace Lumi4.Lumi4App.ViewModels
                 {
                     Debug.WriteLine("Exception adding DiscoveredPeripheral: " + ex.Message);
                 }
-
-                //await WebServerCentralManager.Connect(httpPeripheral);
-                //httpPeripheral.Start();
             }
         }
 
@@ -172,11 +203,6 @@ namespace Lumi4.Lumi4App.ViewModels
         private bool CheckForValidApproximateNetWorkEntered()
         {
             return !String.IsNullOrWhiteSpace(HostIDOne) && !String.IsNullOrWhiteSpace(HostIDTwo) && !String.IsNullOrWhiteSpace(NetworkIDOne) ? true : false;
-        }
-
-        public void InitializeSettings()
-        {
-
         }
 
         public void LoadSettings()
@@ -201,8 +227,6 @@ namespace Lumi4.Lumi4App.ViewModels
 
             }
         }
-
-
         #endregion
 
 

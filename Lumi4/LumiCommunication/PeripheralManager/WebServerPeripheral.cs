@@ -121,6 +121,37 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             return "";
         }
 
+
+        public async Task<string> SendData(string stringToSend)
+        {
+            var cts = new CancellationTokenSource();
+            cts.CancelAfter(TimeSpan.FromSeconds(30));
+
+            var webService = PeripheralInfo.IP + WebServiceSendString + "=" + stringToSend + "/";
+            var resourceUri = new Uri(webService);
+            try
+            {
+                HttpResponseMessage response = await httpClient.PostAsync(resourceUri, null);
+                var message = await response.Content.ReadAsStringAsync();
+                if (message != "")
+                {
+                    Debug.WriteLine(message);
+                    OnReceivedData(DataHandling.DataConversion.StringToListByteArray(message).ToArray());
+                }
+                response.Dispose();
+                cts.Dispose();
+                return message;
+            }
+            catch (TaskCanceledException ex)
+            {
+                // Handle request being canceled due to timeout.
+                return "";
+            }
+            return "";
+        }
+
+
+
         public override string ToString()
         {
             return this.PeripheralInfo.Name;

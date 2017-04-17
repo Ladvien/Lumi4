@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>4294E6574BFED6696B4034E49B3BC5A6BCA04D3F3E408376B814AD3CA244D79C</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>379B2A49C9946AC913410ED1B5773EF529E17DA44304981FCAADD0A8E28A7769</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>52068d6b-5aa2-441a-a114-9831c4ef889a_1.0.0.0_x86__4w95bhx1cdg22</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>52068d6b-5aa2-441a-a114-9831c4ef889a_4w95bhx1cdg22!App</RegisteredUserModeAppID>
     <RegisteredPackageID>52068d6b-5aa2-441a-a114-9831c4ef889a</RegisteredPackageID>
@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-17T21:39:21.664</Modified>
+      <Modified>2017-04-17T23:39:56.443</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Lumi4.exe">
       <PackagePath>entrypoint\Lumi4.exe</PackagePath>
-      <Modified>2017-04-17T21:39:20.841</Modified>
+      <Modified>2017-04-17T23:39:56.032</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\.nuget\packages\CommonServiceLocator\1.3.0\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll">
       <PackagePath>Microsoft.Practices.ServiceLocation.dll</PackagePath>
@@ -750,7 +750,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Lumi4.xr.xml">
       <PackagePath>Lumi4.xr.xml</PackagePath>
-      <Modified>2017-04-17T21:39:20.562</Modified>
+      <Modified>2017-04-17T23:20:11.248</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -759,11 +759,11 @@
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-17T21:39:21.393</Modified>
+      <Modified>2017-04-17T23:20:11.983</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ladvien\Documents\Visual Studio 2015\Projects\Lumi4\Lumi4\bin\x86\Debug\Core\Lumi4.exe">
       <PackagePath>Lumi4.exe</PackagePath>
-      <Modified>2017-04-17T21:39:21.661</Modified>
+      <Modified>2017-04-17T23:39:56.439</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
