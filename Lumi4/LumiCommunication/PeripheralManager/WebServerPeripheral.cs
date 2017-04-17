@@ -120,6 +120,11 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             }
             return "";
         }
+
+        public override string ToString()
+        {
+            return this.PeripheralInfo.Name;
+        }
     }
 
 }

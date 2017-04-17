@@ -8,7 +8,6 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     >
-
     <StackPanel>
         <TextBlock HorizontalAlignment="Center" FontSize="44">Lumi2</TextBlock>
         <ProgressBar x:Name="ProgressBar" Maximum="{Binding ProgressBarMaximum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="{Binding ProgressBarValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="AntiqueWhite"/>
@@ -46,7 +45,7 @@
                                                 <StackPanel>
                                                     <TextBlock Text="Discovered:" Padding="2"/>
                                                     <StackPanel VerticalAlignment="Top" >
-                                                        <ComboBox x:Name="IPComboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="IPComboBox_SelectionChanged"/>
+                                                    <ComboBox x:Name="IPComboBox" HorizontalAlignment="Stretch" ItemsSource="{Binding DiscoveredPeripherals, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  SelectedIndex="{Binding DiscoveredPeripheralIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" SelectionChanged="IPComboBox_SelectionChanged"/>
                                                             <StackPanel Orientation="Horizontal" Padding="4">
                                                                 <TextBlock Text="Device IP: " VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
                                                             <TextBlock IsTextSelectionEnabled="True" Padding="4" x:Name="SelectedIp" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Text=""/>

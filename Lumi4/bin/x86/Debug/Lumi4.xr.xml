@@ -3,6 +3,8 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="DeviceTypePivotIndex" />
     <RootPropertyPathName Name="SearchCommand" />
+    <RootPropertyPathName Name="DiscoveredPeripherals" />
+    <RootPropertyPathName Name="DiscoveredPeripheralIndex" />
     <RootPropertyPathName Name="NetworkIDTwo" />
     <RootPropertyPathName Name="NetworkIDOne" />
     <RootPropertyPathName Name="HostIDTwo" />
@@ -134,6 +136,8 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="SelectedIndex" />
       <RootProperty Name="VerticalAlignment" />
       <RootEvent Name="SelectionChanged" />
     </RootType>

@@ -95,7 +95,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lumi4App\Models\Lumi4Model.cs" />
     <Compile Include="Lumi4App\Settings\Lumi4SettingsLibrary.cs" />
     <Compile Include="Lumi4App\ViewModels\MainPageViewModel.cs" />
     <Compile Include="LumiCommunication\CentralManager\BluetoothLECentralManager.cs" />
@@ -200,7 +199,9 @@
       <Name>Windows Desktop Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Lumi4App\Models\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

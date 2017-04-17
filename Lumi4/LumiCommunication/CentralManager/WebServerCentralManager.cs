@@ -11,7 +11,6 @@ using System.Net.Http;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -59,7 +58,7 @@ namespace Lumi4.LumiCommunication.CentralManager
             UpdateDeviceStateWithWifiStatus();
         }
 
-        public async void Search(int startIndex, int endIndex, int timeout = 300, ProgressBar progressBar = null)
+        public async void Search(int startIndex, int endIndex, int timeout = 300)
         {
 
             // 1. Convert the passed IP down to 3 places.
@@ -78,12 +77,6 @@ namespace Lumi4.LumiCommunication.CentralManager
             var threePartIP = IP.ToString().Replace(fourthPartOfIp, "");
             var httpClient = new System.Net.Http.HttpClient();
             httpClient.Timeout = new TimeSpan(0, 0, 0, 0, timeout);
-
-            if (progressBar != null)
-            {
-                progressBar.Maximum = endIndex - startIndex;
-                progressBar.Value = 0;
-            }
 
             DeviceState.State = States.Searching;
             OnDeviceStateChange(DeviceState);
@@ -117,13 +110,7 @@ namespace Lumi4.LumiCommunication.CentralManager
                 {
                     OnDiscoveringDevice(null);
                     Debug.WriteLine("Exception in WifiCentralManager.Search: " + ex.Message);
-                }
-                if(progressBar != null) { progressBar.Value += 1; }   
-            }
-            if(progressBar != null)
-            {
-                progressBar.Value = 0;
-                progressBar.IsEnabled = false;
+                } 
             }
             UpdateDeviceStateWithWifiStatus();
         }
@@ -176,6 +163,7 @@ namespace Lumi4.LumiCommunication.CentralManager
         {
             return DiscoveredPeripherals[name];
         }
+
     }
 
 }

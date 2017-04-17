@@ -120,7 +120,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
 
         abstract public void End();
 
-
     }
 
     public class DeviceStateChangedEventArgs: EventArgs
