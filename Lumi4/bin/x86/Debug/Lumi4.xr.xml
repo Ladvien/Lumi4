@@ -13,6 +13,7 @@
     <RootPropertyPathName Name="HostIDOne" />
     <RootPropertyPathName Name="ProgressBarMaximum" />
     <RootPropertyPathName Name="ProgressBarValue" />
+    <RootPropertyPathName Name="TitleLabel" />
     <RootPropertyPathName Name="Label" />
     <RootPropertyPathName Name="Glyph" />
   </Roots.PropertyPathNames>
@@ -36,12 +37,12 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Text" />
       <RootProperty Name="FontSize" />
-      <RootProperty Name="Inlines" />
       <RootProperty Name="Padding" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="FontFamily" />
-      <RootProperty Name="Text" />
+      <RootProperty Name="Inlines" />
       <RootProperty Name="IsTextSelectionEnabled" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="TextWrapping" />

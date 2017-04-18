@@ -21,7 +21,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             }
         }
 
-        public override void Start()
+        public override async Task<bool> Start()
         {
             throw new NotImplementedException();
         }

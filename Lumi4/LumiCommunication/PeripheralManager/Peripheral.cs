@@ -1,4 +1,5 @@
 ﻿using Lumi4.LumiCommunication.DataHandling;
+using Lumi4.LumiCommunication.PeripheralManager.PeripheralEventArgs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -116,25 +117,16 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             
         }
 
-        abstract public void Start();
+        abstract public Task<bool> Start();
 
         abstract public void End();
 
     }
 
-    public class DeviceStateChangedEventArgs: EventArgs
-    {
-        internal PeripheralInfo PeripheralInfo { get; set; }
-    }
 
-    public class ReceivedDataEventArgs : EventArgs
-    {
-        internal byte[] ReceivedData { get; set; }
-    }
 
-    public class SentDataEventArgs: EventArgs
-    {
-        internal byte[] SentData { get; set; }
-    }
+
+
+
 
 }

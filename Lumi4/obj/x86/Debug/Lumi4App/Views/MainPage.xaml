@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     >
     <StackPanel>
-        <TextBlock HorizontalAlignment="Center" FontSize="44">Lumi2</TextBlock>
+        <TextBlock HorizontalAlignment="Center" Text="{Binding TitleLabel}" FontSize="44"/>
         <ProgressBar x:ConnectionId='1' x:Name="ProgressBar" Maximum="{Binding ProgressBarMaximum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="{Binding ProgressBarValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="AntiqueWhite"/>
         <Pivot >
             <Pivot.Items>

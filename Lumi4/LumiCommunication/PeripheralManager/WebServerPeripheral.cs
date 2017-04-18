@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.Web.Http;
 
 namespace Lumi4.LumiCommunication.PeripheralManager
 {
@@ -21,7 +22,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         #region properties
         
         public WebServerPeripheralInfo PeripheralInfo { get; }
-        HttpClient httpClient = new HttpClient();
+        Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
 
         private int PollingDelay { get; set; }
         private bool PollingActive { get; set; } = false;
@@ -36,9 +37,18 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             PeripheralBehavior = new PeripheralBehavior();
         }
 
-        override public void Start()
+        override public async Task<bool> Start()
         {
-            PollWebServerDataAvailability();
+            var connected = await Connect();
+            if (connected)
+            {
+                PollWebServerDataAvailability();
+                return true;
+            } else
+            {
+                return false;
+            }
+            
         }
 
         override public void End()
@@ -103,10 +113,9 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             var resourceUri = new Uri(webService);
             try
             {
-                HttpResponseMessage response = await httpClient.PostAsync(resourceUri, null);
+                Windows.Web.Http.HttpResponseMessage response = await httpClient.PostAsync(resourceUri, null);
                 var message = await response.Content.ReadAsStringAsync();
                 if (message != "") {
-                    Debug.WriteLine(message);
                     OnReceivedData(DataHandling.DataConversion.StringToListByteArray(message).ToArray());
                 }
                 response.Dispose();
@@ -116,40 +125,52 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             catch (TaskCanceledException ex)
             {
                 // Handle request being canceled due to timeout.
+                Debug.WriteLine(ex.Message);
                 return "";
             }
             return "";
         }
 
 
-        public async Task<string> SendData(string stringToSend)
+        public async Task<bool> SendData(string stringToSend)
+        {
+            var success = await Post(WebServiceSendString, stringToSend);
+            return success;
+        }
+
+        public async Task<bool> Post(string WebService, string Message = "", int CancelAfter = 30)
         {
             var cts = new CancellationTokenSource();
-            cts.CancelAfter(TimeSpan.FromSeconds(30));
+            cts.CancelAfter(TimeSpan.FromSeconds(CancelAfter));
 
-            var webService = PeripheralInfo.IP + WebServiceSendString + "=" + stringToSend + "/";
+            var webService = PeripheralInfo.IP + WebService;
             var resourceUri = new Uri(webService);
             try
             {
-                HttpResponseMessage response = await httpClient.PostAsync(resourceUri, null);
-                var message = await response.Content.ReadAsStringAsync();
-                if (message != "")
+                using (HttpStringContent content = new HttpStringContent(Message, Windows.Storage.Streams.UnicodeEncoding.Utf8))
                 {
-                    Debug.WriteLine(message);
-                    OnReceivedData(DataHandling.DataConversion.StringToListByteArray(message).ToArray());
+                    content.Headers.ContentLength = (ulong)Message.Length;
+                    using (var response = await httpClient.PostAsync(resourceUri, content))
+                    {
+                        cts.Dispose();
+                        return response.IsSuccessStatusCode;
+                    };
                 }
-                response.Dispose();
-                cts.Dispose();
-                return message;
             }
             catch (TaskCanceledException ex)
             {
                 // Handle request being canceled due to timeout.
-                return "";
+                Debug.WriteLine(ex.Message);
+                return false;
             }
-            return "";
-        }
+            return false;
+        } 
 
+        public async Task<bool> Connect()
+        {
+            var success = await Post(WebServiceConnect);
+            return success;
+        }
 
 
         public override string ToString()

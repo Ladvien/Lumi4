@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lumi4.DeviceState;
+using Lumi4.LumiCommunication.PeripheralManager.PeripheralEventArgs;
 
 namespace Lumi4.LumiCommunication.PeripheralManager
 {

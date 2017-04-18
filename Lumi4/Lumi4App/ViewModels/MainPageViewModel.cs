@@ -1,6 +1,7 @@
 ﻿using Lumi4.LumiCommunication.CentralManager;
 using Lumi4.LumiCommunication.DataHandling;
 using Lumi4.LumiCommunication.PeripheralManager;
+using Lumi4.LumiCommunication.PeripheralManager.PeripheralEventArgs;
 using Lumi4.UI;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -102,6 +103,13 @@ namespace Lumi4.Lumi4App.ViewModels
             get { return _ProgressBarMaximum; }
             set { SetProperty(ref _ProgressBarMaximum, value); }
         }
+
+        private string _TitleLabel = "Lumi4";
+        public string TitleLabel
+        {
+            get { return _TitleLabel; }
+            set { SetProperty(ref _TitleLabel, value); }
+        }
         #endregion
 
         #region commands
@@ -135,7 +143,7 @@ namespace Lumi4.Lumi4App.ViewModels
 
         private void ConnectedWebServerPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine(DataConversion.ByteArrayToAsciiString(args.ReceivedData));
         }
 
         public DelegateCommand SendCommand { get; set; }
@@ -146,7 +154,7 @@ namespace Lumi4.Lumi4App.ViewModels
         private async void SendExecute()
         {
             var d = ConnectedWebServerPeripheral as WebServerPeripheral;
-            await d.SendData("Hey you!");
+            await d.SendData("Hey you! 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 ");
             await d.GetData();
         }
 
@@ -185,7 +193,6 @@ namespace Lumi4.Lumi4App.ViewModels
                 {
                     DiscoveredPeripherals.Add(httpPeripheral);
                     DiscoveredPeripheralIndex++;
-                    Debug.WriteLine("HERE");
                 } catch (Exception ex)
                 {
                     Debug.WriteLine("Exception adding DiscoveredPeripheral: " + ex.Message);
@@ -224,7 +231,7 @@ namespace Lumi4.Lumi4App.ViewModels
             }
             catch (Exception ex)
             {
-
+                Debug.WriteLine(ex.Message);
             }
         }
         #endregion
@@ -233,7 +240,8 @@ namespace Lumi4.Lumi4App.ViewModels
 
         private void HttpPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
         {
-            var str = DataConversion.ByteArrayToAsciiString(args.ReceivedData);
+            var argsByteArray = args.ReceivedData;
+            var str = DataConversion.ByteArrayToAsciiString(argsByteArray); 
             Debug.WriteLine(str);
         }
 
