@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lumi4.DeviceState
+namespace Lumi4.LumiCommunication.DeviceState
 {
     public enum States
     {

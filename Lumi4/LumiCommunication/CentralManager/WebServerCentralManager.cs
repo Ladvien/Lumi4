@@ -16,9 +16,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Lumi4.DeviceState;
 using Lumi4.LumiCommunication.PeripheralManager;
 using System.Net;
+using Lumi4.LumiCommunication.DeviceState;
 
 namespace Lumi4.LumiCommunication.CentralManager
 {
@@ -40,6 +40,7 @@ namespace Lumi4.LumiCommunication.CentralManager
             {
                 Uri IP = new Uri(ip);
                 SetApproximateNetwork(IP);
+
             }
             catch (Exception ex)
             {
@@ -110,6 +111,7 @@ namespace Lumi4.LumiCommunication.CentralManager
                 {
                     OnDiscoveringDevice(null);
                     Debug.WriteLine("Exception in WifiCentralManager.Search: " + ex.Message);
+                    DeviceState.State = States.Unknown;
                 } 
             }
             UpdateDeviceStateWithWifiStatus();

@@ -1,5 +1,6 @@
 ﻿using Lumi4.LumiCommunication.CentralManager;
 using Lumi4.LumiCommunication.DataHandling;
+using Lumi4.LumiCommunication.DeviceState;
 using Lumi4.LumiCommunication.PeripheralManager;
 using Lumi4.LumiCommunication.PeripheralManager.PeripheralEventArgs;
 using Lumi4.UI;
@@ -122,9 +123,10 @@ namespace Lumi4.Lumi4App.ViewModels
         }
         private void SearchExecute()
         {
-            int start = 90;
-            int end = 125;
+            int start = 98;
+            int end = 115;
             int timeout = 300;
+            
             ProgressBarMaximum = end - start;
             Search(HostIDOne, HostIDTwo, NetworkIDOne, NetworkIDTwo, timeout, start, end);
         }
@@ -134,16 +136,21 @@ namespace Lumi4.Lumi4App.ViewModels
         {
             return (DiscoveredPeripherals.Count > 0) ? true : false;
         } 
-        private void ConnectExecute()
+        private async void ConnectExecute()
         {
+            
             ConnectedWebServerPeripheral = DiscoveredPeripherals[DiscoveredPeripheralIndex];
-            ConnectedWebServerPeripheral.ReceivedData += ConnectedWebServerPeripheral_ReceivedData;
-            ConnectedWebServerPeripheral.Start();
+            var success = await WebServerCentralManager.Connect(ConnectedWebServerPeripheral);
+            if (success)
+            {
+                ConnectedWebServerPeripheral.ReceivedData += ConnectedWebServerPeripheral_ReceivedData;
+                ConnectedWebServerPeripheral.Start(true);
+            }
         }
 
         private void ConnectedWebServerPeripheral_ReceivedData(object source, ReceivedDataEventArgs args)
         {
-            Debug.WriteLine(DataConversion.ByteArrayToAsciiString(args.ReceivedData));
+            Debug.Write(DataConversion.ByteArrayToAsciiString(args.ReceivedData));
         }
 
         public DelegateCommand SendCommand { get; set; }
@@ -154,7 +161,7 @@ namespace Lumi4.Lumi4App.ViewModels
         private async void SendExecute()
         {
             var d = ConnectedWebServerPeripheral as WebServerPeripheral;
-            await d.SendData("Hey you! 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 ");
+            await d.SendData("123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 ");
             await d.GetData();
         }
 
@@ -165,6 +172,7 @@ namespace Lumi4.Lumi4App.ViewModels
             WebServerCentralManager = new WebServerCentralManager();
             WebServerCentralManager.DiscoveredDevice += WebServerCentralManager_DiscoveredDevice;
             WebServerCentralManager.DeviceStateChange += CentralManager_DeviceStateChange;
+
             WebServerCentralManager.Start();
 
             Windows.ApplicationModel.Core.CoreApplication.Suspending += CoreApplication_Suspending;
@@ -242,7 +250,7 @@ namespace Lumi4.Lumi4App.ViewModels
         {
             var argsByteArray = args.ReceivedData;
             var str = DataConversion.ByteArrayToAsciiString(argsByteArray); 
-            Debug.WriteLine(str);
+            Debug.Write(str);
         }
 
         private void HttpPeripheral_SentData(object source, SentDataEventArgs args)
@@ -278,7 +286,7 @@ namespace Lumi4.Lumi4App.ViewModels
             }
 
             var deviceState = WebServerCentralManager.GetDeviceState();
-            if (deviceState.State == DeviceState.States.On)
+            if (deviceState.State == States.On)
             {
                 WebServerCentralManager.Search(start, end, timeout);
             }

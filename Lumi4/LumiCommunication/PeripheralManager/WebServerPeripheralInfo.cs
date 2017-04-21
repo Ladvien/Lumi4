@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lumi4.LumiCommunication.DeviceState;
 
 namespace Lumi4.LumiCommunication.PeripheralManager
 {
@@ -19,6 +20,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         {
             Name = name;
             IP = ip;
+            DeviceState = new LumiCommunication.DeviceState.DeviceState();
         }
     }
 }

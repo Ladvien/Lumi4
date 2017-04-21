@@ -117,7 +117,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             
         }
 
-        abstract public Task<bool> Start();
+        abstract public bool Start(bool pollingService = false);
 
         abstract public void End();
 

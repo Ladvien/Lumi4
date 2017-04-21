@@ -21,7 +21,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             }
         }
 
-        public override async Task<bool> Start()
+        public override bool Start(bool pollingService = false)
         {
             throw new NotImplementedException();
         }

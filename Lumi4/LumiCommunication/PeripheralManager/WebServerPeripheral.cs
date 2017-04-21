@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lumi4.LumiCommunication.DeviceState;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -37,10 +38,10 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             PeripheralBehavior = new PeripheralBehavior();
         }
 
-        override public async Task<bool> Start()
+        override public bool Start(bool pollingService = false)
         {
-            var connected = await Connect();
-            if (connected)
+
+            if (pollingService)
             {
                 PollWebServerDataAvailability();
                 return true;
@@ -49,6 +50,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
                 return false;
             }
             
+
         }
 
         override public void End()
@@ -116,7 +118,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
                 Windows.Web.Http.HttpResponseMessage response = await httpClient.PostAsync(resourceUri, null);
                 var message = await response.Content.ReadAsStringAsync();
                 if (message != "") {
-                    OnReceivedData(DataHandling.DataConversion.StringToListByteArray(message).ToArray());
+                     OnReceivedData(DataHandling.DataConversion.StringToListByteArray(message).ToArray());
                 }
                 response.Dispose();
                 cts.Dispose();
@@ -165,13 +167,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
             }
             return false;
         } 
-
-        public async Task<bool> Connect()
-        {
-            var success = await Post(WebServiceConnect);
-            return success;
-        }
-
 
         public override string ToString()
         {

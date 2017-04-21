@@ -9,5 +9,6 @@ namespace Lumi4.LumiCommunication.PeripheralManager
     abstract public class PeripheralInfo
     {
         public string Name { get; set; }
+        public DeviceState.DeviceState DeviceState { get; set; }
     }
 }
