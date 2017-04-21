@@ -20,7 +20,7 @@ namespace Lumi4.LumiCommunication.PeripheralManager
         {
             Name = name;
             IP = ip;
-            DeviceState = new LumiCommunication.DeviceState.DeviceState();
+            DeviceState = new DeviceState.DeviceState();
         }
     }
 }

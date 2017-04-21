@@ -153,6 +153,9 @@
     <Page.BottomAppBar>
         <AppBar IsOpen="True" IsSticky="True">
             <StackPanel Orientation="Horizontal">
+                <AppBarButton Label="Connected" IsHitTestVisible="False">
+                    <Rectangle  x:Name="Connected" RadiusX="10" RadiusY="10" Width="20" Height="20" Fill="{Binding ConnectedColor}"></Rectangle>
+                </AppBarButton>
                 <AppBarButton Label="RX" IsHitTestVisible="False">
                     <Rectangle  x:Name="rxIndicator" RadiusX="10" RadiusY="10" Width="20" Height="20" Fill="Red"></Rectangle>
                 </AppBarButton>

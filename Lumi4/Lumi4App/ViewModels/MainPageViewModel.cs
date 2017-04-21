@@ -10,6 +10,8 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Windows.ApplicationModel;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 
 namespace Lumi4.Lumi4App.ViewModels
 {
@@ -27,6 +29,22 @@ namespace Lumi4.Lumi4App.ViewModels
         }
         public CentralDeviceType CentralDeviceTypeSelected { get; set; }
 
+        private SolidColorBrush _ConnectedColor = new SolidColorBrush(Colors.Red);
+        public SolidColorBrush ConnectedColor
+        {
+            get { return _ConnectedColor; }
+            set { SetProperty(ref _ConnectedColor, value); }
+        }
+
+        private bool _IsConnected;
+        public bool IsConnected
+        {
+            get { return _IsConnected; }
+            set {
+                if (value) { ConnectedColor = new SolidColorBrush(Colors.Lime); }
+                else { ConnectedColor = new SolidColorBrush(Colors.Red); }
+                SetProperty(ref _IsConnected, value); }
+        }
         private ObservableCollection<Peripheral> _DiscoveredPeripherals = new ObservableCollection<Peripheral>();
         public ObservableCollection<Peripheral> DiscoveredPeripherals
         {
@@ -118,7 +136,8 @@ namespace Lumi4.Lumi4App.ViewModels
         private bool SearchCanExecute()
         {
             return (CentralDeviceTypeSelected == CentralDeviceType.Http &&
-                    CheckForValidApproximateNetWorkEntered() == true
+                    CheckForValidApproximateNetWorkEntered() == true &&
+                    !IsConnected
                 ) ? true : false;
         }
         private void SearchExecute()
@@ -143,6 +162,7 @@ namespace Lumi4.Lumi4App.ViewModels
             var success = await WebServerCentralManager.Connect(ConnectedWebServerPeripheral);
             if (success)
             {
+                IsConnected = true;
                 ConnectedWebServerPeripheral.ReceivedData += ConnectedWebServerPeripheral_ReceivedData;
                 ConnectedWebServerPeripheral.Start(true);
             }
@@ -182,7 +202,8 @@ namespace Lumi4.Lumi4App.ViewModels
                 ObservesProperty(() => this.DeviceTypePivotIndex).
                 ObservesProperty(() => this.HostIDOne).
                 ObservesProperty(() => this.HostIDTwo).
-                ObservesProperty(() => this.NetworkIDOne);
+                ObservesProperty(() => this.NetworkIDOne).
+                ObservesProperty(() => this.IsConnected);
 
             ConnectCommand = new DelegateCommand(ConnectExecute, ConnectCanExecute).ObservesProperty(() => this.DiscoveredPeripheralIndex);
 
